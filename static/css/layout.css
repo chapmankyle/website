@@ -1,0 +1,42 @@
+/* all styling */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* body styling */
+body {
+  margin-top: 3rem;
+  margin-bottom: 0 !important;
+}
+
+/* footer styling */
+footer {
+  width: 100%;
+  color: white;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: #fa8;
+}
+
+/* container for entire web page */
+.page-container {
+  display: grid;
+  position: relative;
+  min-height: calc(100vh - 80px);
+  grid-template-rows: auto 1fr auto;
+}
+
+/* styling navbar-dark */
+.navbar-dark {
+  color: #fff;
+  cursor: pointer;
+}
+
+/* pushed footer to bottom */
+.push-footer {
+  margin-bottom: 1rem;
+}
