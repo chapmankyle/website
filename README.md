@@ -1,2 +1,2 @@
 # website
-Personal website to accompany CV
+Personal website to accompany CV :memo:
