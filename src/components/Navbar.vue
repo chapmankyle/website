@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar elevate-on-scroll app>
+    <v-app-bar color="#2e2e2e" elevate-on-scroll app dark>
       <router-link to="/">
         <img id="logo" src="logo.jpeg" alt="Me" width="45" height="45" />
       </router-link>
@@ -62,6 +62,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  color: #e3e3e3 !important;
+}
+
 .nav-icons {
   margin-right: 10px;
   font-size: 1.3em !important;
@@ -75,8 +79,8 @@ a {
 
 #title {
   font-weight: bold;
-  color: #2e2e2e;
+  color: #e3e3e3;
   letter-spacing: 0.08rem;
-  font-size: 21px;
+  font-size: 19px;
 }
 </style>

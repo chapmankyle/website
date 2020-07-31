@@ -1,6 +1,6 @@
 <template>
-  <v-footer class="font-weight-medium" absolute padless>
-    <v-col class="text-center" cols="12">
+  <v-footer color="#2e2e2e" class="font-weight-medium" absolute padless dark>
+    <v-col id="copyright" class="text-center" cols="12">
       Copyright &copy; {{ new Date().getFullYear() }} - Kyle Chapman
     </v-col>
   </v-footer>
@@ -14,4 +14,8 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+#copyright {
+  color: #e3e3e3 !important;
+}
+</style>
