@@ -29,6 +29,7 @@ export default Vue.extend({
 <style>
 #app {
   font-family: "Roboto", sans-serif;
+  background-color: #2e2e2e;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
