@@ -27,9 +27,14 @@ export default Vue.extend({
 </script>
 
 <style>
+mark {
+  color: white;
+  background-color: #f6e58d;
+}
+
 #app {
   font-family: "Roboto", sans-serif;
-  background-color: #2e2e2e;
+  background-color: #f8f8f8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -37,5 +42,11 @@ export default Vue.extend({
 .bold-ital {
   font-weight: bold;
   font-style: italic;
+}
+
+.heading-shadow {
+  font-size: 2.2rem;
+  letter-spacing: 0.2rem;
+  text-shadow: 1px 1px 3px #0984e3;
 }
 </style>
