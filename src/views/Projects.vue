@@ -1,6 +1,8 @@
 <template>
   <v-container>
-    <h1>Projects</h1>
+    <h1 class="mx-6 py-5">
+      <mark class="heading-shadow">Projects</mark>
+    </h1>
   </v-container>
 </template>
 
