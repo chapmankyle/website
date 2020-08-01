@@ -9,8 +9,12 @@
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
           <h1 class="jumbo-padding">Kyle Chapman</h1>
-          <h2 class="jumbo-padding font-weight-thin">Cape Town, South Africa</h2>
-          <h2 class="jumbo-padding font-weight-thin">BSc Honours in Computer Science</h2>
+          <h2 class="jumbo-padding font-weight-thin">
+            Cape Town, South Africa
+          </h2>
+          <h2 class="jumbo-padding font-weight-thin">
+            BSc Honours in Computer Science
+          </h2>
 
           <div class="jumbo-padding">
             <v-btn class="push-right" icon dark x-large>
@@ -45,7 +49,31 @@
       </v-row>
     </v-parallax>
 
+    <h1 class="mx-6 py-5">
+      <mark class="heading-shadow">About Me</mark>
+    </h1>
+
+    <v-card class="mx-6 px-6 py-6">
+      <v-row align="center" justify="center">
+        <v-col class="text-center" cols="12" sm="6" md="6">
+          hello
+        </v-col>
+        <v-col cols="12" sm="6" md="6">
+          <h2 id="intro-heading">Hello there!</h2>
+          <br />
+          <span>
+            My name is Kyle Chapman and I am currently 21 years old with a
+            Bachelor of Science Honours degree in Computer Science.
+          </span>
+        </v-col>
+      </v-row>
+    </v-card>
+
     <br />
+
+    <h1 class="mx-6 py-5">
+      <mark class="heading-shadow">Personal Story</mark>
+    </h1>
 
     <v-card class="mx-6 px-6 py-6">
       <v-timeline>
@@ -61,46 +89,18 @@
             <span
               class="headline font-weight-bold"
               :style="`color: ${info.color};`"
-              :v-text="info.year"
-            ></span>
+            >
+              {{ info.year }}
+            </span>
           </template>
           <div class="py-4">
-            <h2 class="headline mb-4" :style="`color: ${info.color};`">
+            <h2
+              class="headline font-weight-bold mb-4"
+              :style="`color: ${info.color};`"
+            >
               {{ info.title }}
             </h2>
-            <div>
-              {{ info.content }}
-            </div>
-          </div>
-        </v-timeline-item>
-
-        <v-timeline-item color="amber" icon="mdi-school" fill-dot>
-          <template v-slot:opposite>
-            <span
-              :class="`headline font-weight-bold amber--text`"
-              v-text="2017"
-            ></span>
-          </template>
-          <div class="py-4">
-            <h2 :class="`headline font-weight-light mb-4 amber--text`">Started </h2>
-            <div>
-              I started studying for my undergraduate degree at the University of Stellenbosch.
-            </div>
-          </div>
-        </v-timeline-item>
-
-        <v-timeline-item color="red" icon="mdi-script" fill-dot>
-          <template v-slot:opposite>
-            <span
-              :class="`headline font-weight-bold red--text`"
-              v-text="2020"
-            ></span>
-          </template>
-          <div class="py-4">
-            <h2 :class="`headline font-weight-light mb-4 red--text`">Started Postgraduate Degree</h2>
-            <div>
-              I started my postgraduate degree at the University of Stellenbosch.
-            </div>
+            <span v-html="info.content"></span>
           </div>
         </v-timeline-item>
       </v-timeline>
@@ -121,32 +121,46 @@ export default Vue.extend({
     return {
       timeline: [
         {
-          color: "#ed6a40",
+          color: "#e06c75",
           year: "1998",
           icon: "mdi-baby-face",
           title: "Date of Birth",
-          content: "I was born on 18 December 1998 at Vergelegen Mediclinic in Somerset West, Cape Town, South Africa. I was told that I was born at roughly 09:00 in the morning and that it was a Friday."
+          content: "I was born on <strong>18 December 1998</strong> at Vergelegen Mediclinic in Somerset West, Cape Town, South Africa. I was told that I was born at roughly 09:00 in the morning and that it was a Friday."
         },
         {
-          color: "#6f3637",
+          color: "#61afef",
           year: "2002",
           icon: "mdi-dog",
           title: "My First Pet",
-          content: "I got my first pet Labrador Retriever for my fourth birthday party and I immediately fell in love with her. Tazzy was her name and she was the most amazing pet I ever had."
+          content: "I got my first pet Labrador Retriever for my 4<sup>th</sup> birthday party and I immediately fell in love with her. <strong>Tazzy</strong> was her name and she was the most amazing pet I ever had."
         },
         {
-          color: "#ce8054",
+          color: "#98c379",
           year: "2004",
           icon: "mdi-car-child-seat",
           title: "Started Junior School",
-          content: "I started my education at SACS Junior School."
+          content: "I started my education at <strong>SACS Junior School</strong> in Newlands, Cape Town, South Africa. I used to make paper cell phones, because my mom wouldn't let me have a real phone until I was 13, and paper laptops to pretend that I was a <em>hackerman</em> that could take over the world."
         },
         {
-          color: "#2b4448",
+          color: "#e06c75",
           year: "2012",
           icon: "mdi-bus-school",
           title: "Started High School",
-          content: "I started in grade 8 at SACS High School."
+          content: "I started in grade 8 at <strong>SACS High School</strong> and completed my schooling education here. I took Biology, Geography and IT as my three subjects of choice from grades 10 to 12. I was told that we would be doing Java as the main programming language in IT and so I decided to get ahead of the class by studying <em>Javascript</em> in my holidays. Little did I know that <em>Java</em> and <em>Javascript</em> are two completely different programming languages."
+        },
+        {
+          color: "#61afef",
+          year: "2017",
+          icon: "mdi-school",
+          title: "Started Undergraduate Degree",
+          content: "I started my undergraduate degree in a <strong>Bachelor of Science in Mathematical Sciences in Computer Science</strong> at the University of Stellenbosch on 17 January 2017. After three years of study, many late nights and many visits to StackOverflow, I finished my undergraduate degree with 3 distinctions in December 2019.<br /><br />I took a wide variety of modules in my 3 years, namely:<ul><li>Probability Theory and Statistics</li><li>Scientific Communication</li><li>Mathematics</li><li>Economics</li><li>Operations Research</li><li>Applied Mathematics</li><li>Computer Science</li></ul>"
+        },
+        {
+          color: "#98c379",
+          year: "2020",
+          icon: "mdi-script",
+          title: "Started Postgraduate Degree",
+          content: "I started my posgraduate degree in a <strong>Bachelor of Science Honours in Mathematical Sciences in Computer Science</strong> at the University of Stellenbosch on 3 February 2020. I aim to finish my postgraduate degree in December 2020 and start working in January 2021. <br /><br />The modules that I took in the first semester, from February to July, were:<ul><li>Computational Intelligence</li><li>Advanced Algorithms</li><li>Space Science</li></ul><br />The modules that I am taking in the second semester, from July to November, are:<ul><li>Digital Image Processing</li><li>Functional Programming</li><li>Machine Learning</li></ul>"
         }
       ]
     };
@@ -162,6 +176,10 @@ a {
 
 #jumbo {
   width: 100% !important;
+}
+
+#intro-heading {
+  color: #98c379;
 }
 
 .jumbo-padding {
