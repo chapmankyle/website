@@ -22,7 +22,7 @@
       <router-link to="/experience">
         <v-btn text>
           <v-icon class="nav-icons">mdi-bank</v-icon>
-          Experience
+          Experience And Education
         </v-btn>
       </router-link>
 
