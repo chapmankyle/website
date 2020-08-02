@@ -39,6 +39,10 @@ mark {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.mono-text {
+  font-family: "Courier Prime", monospace;
+}
+
 .bold-ital {
   font-weight: bold;
   font-style: italic;
