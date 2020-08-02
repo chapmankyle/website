@@ -1,35 +1,47 @@
 <template>
   <v-container>
-    <h1 class="mx-6 py-5">
-      <mark class="heading-shadow">Contact</mark>
-    </h1>
+    <h1 class="mx-16 mt-6">Contact</h1>
+    <v-divider class="mx-16"></v-divider>
 
-    <v-card class="mx-6 px-6 py-6">
+    <v-card class="mx-16 mt-6 px-6 py-6">
+      <h2>Feel free to contact me anytime!</h2>
+
+      <br />
       <v-row>
-        <v-col id="ct-name" class="contact-left" cols="12" sm="4" md="4">
-          Name
-        </v-col>
-        <v-col cols="12" sm="8" md="8">
-          <v-text-field v-model="senderName" solo></v-text-field>
-        </v-col>
-
-        <v-col id="ct-email" class="contact-left" cols="12" sm="4" md="4">
-          Email Address
-        </v-col>
-        <v-col cols="12" sm="8" md="8">
-          <v-text-field v-model="senderEmail" solo></v-text-field>
+        <v-col class="mb-6" cols="12" sm="12" md="12">
+          <v-icon id="mail-icon" class="mr-6" large>mdi-email</v-icon>
+          <a href="mailto:kyleichapman@gmail.com">
+            <u class="cont">kyleichapman@gmail.com</u>
+          </a>
         </v-col>
 
-        <v-col id="ct-msg" class="contact-left" cols="12" sm="4" md="4">
-          Message
+        <v-col class="mb-6" cols="12" sm="12" md="12">
+          <v-icon id="linkedin-icon" class="mr-4" x-large>
+            mdi-linkedin-box
+          </v-icon>
+          <a
+            href="https://www.linkedin.com/in/kyle-chapman-87062730/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cont"
+          >
+            LinkedIn
+          </a>
         </v-col>
-        <v-col cols="12" sm="8" md="8">
-          <v-textarea v-model="senderMessage" solo></v-textarea>
-        </v-col>
-      </v-row>
 
-      <v-row align="center" justify="center">
-        <v-btn id="ct-send">Send Email</v-btn>
+        <v-col cols="12" sm="12" md="12">
+          <v-icon id="facebook-icon" class="mr-4" x-large>
+            mdi-facebook-box
+          </v-icon>
+          <a
+            href="https://www.facebook.com/kyle.chapman.5011/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cont"
+          >
+            Facebook
+          </a>
+        </v-col>
       </v-row>
     </v-card>
   </v-container>
@@ -52,27 +64,21 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-#ct-name {
+#mail-icon {
   color: #e06c75;
 }
 
-#ct-email {
-  color: #61afef;
-}
-
-#ct-msg {
+#linkedin-icon {
   color: #98c379;
 }
 
-#ct-send {
-  color: white;
-  background-color: #e06c75;
-  height: 46px;
-  width: 146px;
+#facebook-icon {
+  color: #61afef;
 }
 
-.contact-left {
-  font-weight: bold;
+.cont {
+  color: #2e2e2e;
+  font-size: 1.2rem;
   letter-spacing: 0.1rem;
 }
 </style>
