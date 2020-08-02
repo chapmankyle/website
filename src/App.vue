@@ -27,6 +27,11 @@ export default Vue.extend({
 </script>
 
 <style>
+a {
+  color: white !important;
+  text-decoration: none;
+}
+
 mark {
   color: white;
   background-color: #f6e58d;
