@@ -1,2 +1,58 @@
-# website
-Personal website to accompany CV :memo:
+# Personal Website :newspaper:
+The source code for my personal website that accompanies my CV :memo:
+
+# Setup :rocket:
+
+Clone the repository and navigate to the `website` directory.
+```bash
+# clone the repo
+git clone git@github.com:chapmankyle/website.git
+
+# navigate to the `website` directory
+cd website
+```
+
+You need to have [Node.js](https://nodejs.org/) installed in order to compile
+from the source code.
+
+# Building :hammer:
+
+You need to install all the dependencies first, so type the following into the
+terminal of your choice:
+```bash
+# install dependencies
+npm install
+```
+
+## Development Build
+
+```bash
+# start the development build
+npm start
+```
+
+The development version is now accessible at http://localhost:8080.
+
+## Production Build
+
+```bash
+# build the production files
+npm run build
+```
+
+This will build the relevant files into the `dist` directory. To serve these
+files, you need to install `serve`.
+
+```bash
+# install serve globally
+npm install -g serve
+```
+
+Then run `serve` and give it a port to listen on.
+
+```bash
+# listen on port 4000
+serve -s dist -l 4000
+```
+
+The production version is now accessible at http://localhost:4000.
