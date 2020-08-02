@@ -28,7 +28,6 @@ export default Vue.extend({
 
 <style>
 a {
-  color: white !important;
   text-decoration: none;
 }
 
