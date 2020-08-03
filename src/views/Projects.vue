@@ -64,6 +64,12 @@ export default Vue.extend({
             "A 3D graphics engine built using C++ and Vulkan.<br />Carbon Engine aims to be an engine that can be integrated into any existing project and is easy to use. Vulkan was chosen as it provides more control over the implementation of engine features, such as pipelines and shader code."
         },
         {
+          title: "Personal Website",
+          github: "https://github.com/chapmankyle/website",
+          image: "https://user-images.githubusercontent.com/43512442/89134279-27b60280-d524-11ea-8add-030d8b01b7d6.png",
+          description: "My personal portfolio website that was made using VueJS and Typescript."
+        },
+        {
           title: "Dodger Game",
           github: "https://github.com/chapmankyle/dodger-game",
           image:
