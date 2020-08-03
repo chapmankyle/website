@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1 class="mt-6">Resume</h1>
+    <h1 class="first-heading">Resume</h1>
     <v-divider class="mb-6"></v-divider>
 
     <embed
