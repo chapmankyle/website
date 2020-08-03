@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1 class="mt-4">Projects</h1>
+    <h1 class="first-heading">Projects</h1>
     <v-divider></v-divider>
 
     <v-card v-for="(info, i) in projects" :key="i" class="mt-6 px-6 py-4">
