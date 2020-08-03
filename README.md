@@ -1,5 +1,7 @@
 # Personal Website :newspaper:
-The source code for my personal website that accompanies my CV :memo:
+Official website is available at https://kylechapman.herokuapp.com/ :tada:
+
+This repository serves as the source code for my personal website that accompanies my CV :memo:
 
 # Setup :rocket:
 
@@ -24,7 +26,7 @@ terminal of your choice:
 npm install
 ```
 
-## Development Build
+## :wrench: Development Build
 
 ```bash
 # start the development build
@@ -33,7 +35,7 @@ npm start
 
 The development version is now accessible at http://localhost:8080.
 
-## Production Build
+## :computer: Production Build
 
 ```bash
 # build the production files
