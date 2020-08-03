@@ -2,9 +2,8 @@
 
 <p align="center">
   <img src="https://circleci.com/gh/chapmankyle/website/tree/master.svg?style=svg" alt="Build Status"></img>
-  <img src="https://img.shields.io/github/license/chapmankyle/website.svg" alt="license: MIT"></img>
-  <img src="https://img.shields.io/librariesio/github/chapmankyle/website.svg" alt="Dependencies"></img>
-  <img src="https://img.shields.io/github/v/release/chapmankyle/website.svg" alt="Release"></img>
+  <img src="https://img.shields.io/github/license/chapmankyle/website.svg?" alt="license: GPL-3.0"></img>
+  <img src="https://img.shields.io/github/v/release/chapmankyle/website.svg?" alt="Release"></img>
 </p>
 
 Official website is available at https://kylechapman.herokuapp.com/ :tada:
