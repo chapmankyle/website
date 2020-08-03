@@ -43,6 +43,10 @@ mark {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.first-heading {
+  margin-top: 16px;
+}
+
 .mono-text {
   font-family: "Courier Prime", monospace;
 }
