@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <h1 class="mx-16 mt-6">Contact</h1>
-    <v-divider class="mx-16"></v-divider>
+    <h1 class="first-heading">Contact</h1>
+    <v-divider></v-divider>
 
-    <v-card class="mx-16 mt-6 px-6 py-6">
+    <v-card class="mt-6 px-6 py-6">
       <h2>Feel free to contact me anytime!</h2>
 
       <br />

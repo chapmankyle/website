@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <v-card class="mx-16 my-6 px-6 py-4">
-      <h1>Experience</h1>
-      <v-divider></v-divider>
+    <h1 class="first-heading">Experience</h1>
+    <v-divider></v-divider>
 
+    <v-card class="mt-4 mb-8 px-6 py-4">
       <v-timeline dense>
         <v-timeline-item
           v-for="(info, i) in experience"
@@ -40,10 +40,10 @@
       </v-timeline>
     </v-card>
 
-    <v-card class="mx-16 my-8 px-6 py-4">
-      <h1>Education</h1>
-      <v-divider></v-divider>
+    <h1 class="mt-4">Education</h1>
+    <v-divider></v-divider>
 
+    <v-card class="mt-4 mb-8 px-6 py-4">
       <v-timeline dense>
         <v-timeline-item
           v-for="(info, i) in education"
