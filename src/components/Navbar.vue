@@ -12,26 +12,14 @@
 
       <v-spacer></v-spacer>
 
-      <router-link to="/projects" class="hidden-sm-and-down">
-        <v-btn text>
-          <v-icon class="nav-icons">mdi-bag-personal</v-icon>
-          Projects
-        </v-btn>
-      </router-link>
-
-      <router-link to="/experience" class="hidden-sm-and-down">
-        <v-btn text>
-          <v-icon class="nav-icons">mdi-bank</v-icon>
-          Experience And Education
-        </v-btn>
-      </router-link>
-
-      <router-link to="/resume" class="hidden-sm-and-down">
-        <v-btn text>
-          <v-icon class="nav-icons">mdi-note-text</v-icon>
-          Resume / CV
-        </v-btn>
-      </router-link>
+      <div v-for="(button, i) in buttons" :key="i">
+        <router-link :to="button.url" class="hidden-sm-and-down">
+          <v-btn text>
+            <v-icon class="nav-icons">{{ button.icon }}</v-icon>
+            {{ button.title }}
+          </v-btn>
+        </router-link>
+      </div>
 
       <v-spacer></v-spacer>
 
@@ -48,11 +36,39 @@
 <script lang="ts">
 import Vue from "vue";
 
+interface NavButton {
+  title: string;
+  icon: string;
+  url: string;
+}
+
 export default Vue.extend({
   name: "Navbar",
 
   props: {
     title: String
+  },
+
+  data() {
+    return {
+      buttons: [
+        {
+          title: "Projects",
+          icon: "mdi-bag-personal",
+          url: "/projects"
+        },
+        {
+          title: "Experience And Education",
+          icon: "mdi-bank",
+          url: "/experience"
+        },
+        {
+          title: "Resume / CV",
+          icon: "mdi-note-text",
+          url: "/resume"
+        }
+      ] as NavButton[]
+    };
   }
 });
 </script>
