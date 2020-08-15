@@ -49,7 +49,6 @@
 
     <br />
     <br />
-    <br />
   </v-container>
 </template>
 
@@ -71,20 +70,20 @@ export default Vue.extend({
     return {
       projects: [
         {
-          title: "Work In Progress: Carbon Engine",
-          github: "https://github.com/chapmankyle/carbon-engine",
-          languages: "C++, Vulkan",
+          title: "Work In Progress: smath",
+          github: "https://github.com/chapmankyle/simple-math",
+          languages: "C++",
           description:
-            "A 3D graphics engine built using C++ and Vulkan.<br />Carbon Engine aims to be an engine that can be integrated into any existing project and is easy to use. Vulkan was chosen as it provides more control over the implementation of engine features, such as pipelines and shader code."
+            "A header-only C++ math library designed for use in graphics software.<br/><br/><em>smath</em> is written in C++17, is platform independent and has no external dependencies. Performance was favoured over accuracy for some of the functions, and currently only a small set of functions have been implemented.<br/>My aim for this library is to be able to use this in any future games that I develop, so that I have complete control over what all the functions do. It also makes it easier to add new features if the need arises.<br/>Developing this library has been really interesting because of my constant need for making existing functions faster."
         },
         {
           title: "Personal Website",
           github: "https://github.com/chapmankyle/website",
           languages: "VueJS, Javascript, Typescript, HTML, CSS",
           image:
-            "https://user-images.githubusercontent.com/43512442/89134279-27b60280-d524-11ea-8add-030d8b01b7d6.png",
+            "https://user-images.githubusercontent.com/43512442/90319271-d0a62980-df36-11ea-9380-33eef30c6830.png",
           description:
-            "My personal portfolio website that was made using VueJS and Typescript.<br />I wanted to use my knowledge of web development to create a website for myself, in order to showcase what I have to offer."
+            "My personal portfolio website that was made using VueJS and Typescript.<br/><br/>I wanted to use my knowledge of web development to create a website for myself, in order to showcase what I have to offer. I made an effort to make my website quite personal so that any person who visits will have a deeper understanding of who I am, as opposed to simply what my experience and qualifications are."
         },
         {
           title: "Dodger Game",
@@ -94,15 +93,6 @@ export default Vue.extend({
             "https://user-images.githubusercontent.com/43512442/88462158-88509a00-cea9-11ea-9362-96e59c16dba9.png",
           description:
             "Dodger Game is a 2D Java game based on dodging traffic for as long as possible, while other cars come towards you in three different lanes.<br />This was a take on the games that I used to play when I was younger."
-        },
-        {
-          title: "Hasher",
-          github: "https://github.com/chapmankyle/hasher",
-          languages: "Electron, Javascript, HTML, CSS",
-          image:
-            "https://user-images.githubusercontent.com/43512442/53758331-4e52b280-3ec6-11e9-8a1e-8047e857d208.png",
-          description:
-            "Program that computes the <code>MD5</code>, <code>SHA-1</code>, <code>SHA-256</code> and <code>SHA-512</code> hashes of inputted text, built using Electron."
         },
         {
           title: "Epi-Use Portal",
@@ -124,6 +114,12 @@ export default Vue.extend({
           languages: "Bash",
           description:
             "Installation scripts for various Linux programs that I have needed to install over the years."
+        },
+        {
+          title: "Dotfiles",
+          github: "https://github.com/chapmankyle/dotfiles",
+          languages: "Bash",
+          description: "Collection of my dotfiles used in my Linux environment."
         }
       ] as Project[]
     };
