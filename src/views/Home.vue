@@ -85,9 +85,8 @@
           <p>
             <strong>Vulkan</strong> is appealing because of how everything needs
             to be set up by the programmer, so it requires that you know what
-            you are doing and does no hand-holding. This also means that you
-            have complete control of the engine you are making, which is why I
-            chose Vulkan to start creating my 3D graphics engine in.
+            you are doing and does no hand-holding. Once I have cemented my
+            knowledge in C++, I aim to create a game engine using Vulkan.
           </p>
 
           <span>
