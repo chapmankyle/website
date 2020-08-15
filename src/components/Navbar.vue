@@ -12,21 +12,21 @@
 
       <v-spacer></v-spacer>
 
-      <router-link to="/projects">
+      <router-link to="/projects" class="hidden-sm-and-down">
         <v-btn text>
           <v-icon class="nav-icons">mdi-bag-personal</v-icon>
           Projects
         </v-btn>
       </router-link>
 
-      <router-link to="/experience">
+      <router-link to="/experience" class="hidden-sm-and-down">
         <v-btn text>
           <v-icon class="nav-icons">mdi-bank</v-icon>
           Experience And Education
         </v-btn>
       </router-link>
 
-      <router-link to="/resume">
+      <router-link to="/resume" class="hidden-sm-and-down">
         <v-btn text>
           <v-icon class="nav-icons">mdi-note-text</v-icon>
           Resume / CV
@@ -35,7 +35,7 @@
 
       <v-spacer></v-spacer>
 
-      <router-link to="/contact">
+      <router-link to="/contact" class="hidden-sm-and-down">
         <v-btn text>
           <v-icon class="nav-icons">mdi-cellphone-iphone</v-icon>
           Contact
