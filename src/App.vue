@@ -61,4 +61,10 @@ mark {
   letter-spacing: 0.2rem;
   text-shadow: 1px 1px 3px #0984e3;
 }
+
+@media screen and (max-width: 863px) {
+  .first-heading {
+    margin-top: 0;
+  }
+}
 </style>

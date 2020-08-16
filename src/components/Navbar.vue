@@ -29,7 +29,28 @@
           Contact
         </v-btn>
       </router-link>
+
+      <div class="hidden-md-and-up">
+        <v-btn @click="toggleMenu()" icon dense>
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+      </div>
     </v-app-bar>
+
+    <v-dialog v-model="menuSelected">
+      <v-card color="#2e2e2e">
+        <v-row v-for="(button, i) in buttonsWithContact" :key="i">
+          <v-col cols="12">
+            <router-link :to="button.url">
+              <v-btn @click="menuSelected = false" block text>
+                <v-icon class="nav-icons">{{ button.icon }}</v-icon>
+                {{ button.title }}
+              </v-btn>
+            </router-link>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -41,7 +62,7 @@ interface NavButton {
   icon: string;
   url: string;
 }
-
+// mdi-menu
 export default Vue.extend({
   name: "Navbar",
 
@@ -51,6 +72,8 @@ export default Vue.extend({
 
   data() {
     return {
+      menuSelected: false,
+
       buttons: [
         {
           title: "Projects",
@@ -67,8 +90,40 @@ export default Vue.extend({
           icon: "mdi-note-text",
           url: "/resume"
         }
+      ] as NavButton[],
+
+      buttonsWithContact: [
+        {
+          title: "Projects",
+          icon: "mdi-bag-personal",
+          url: "/projects"
+        },
+        {
+          title: "Experience And Education",
+          icon: "mdi-bank",
+          url: "/experience"
+        },
+        {
+          title: "Resume / CV",
+          icon: "mdi-note-text",
+          url: "/resume"
+        },
+        {
+          title: "Contact",
+          icon: "mdi-cellphone-iphone",
+          url: "/contact"
+        }
       ] as NavButton[]
     };
+  },
+
+  methods: {
+    /**
+     * Toggles the menu selection.
+     */
+    toggleMenu: function() {
+      this.menuSelected = !this.menuSelected;
+    }
   }
 });
 </script>
@@ -85,6 +140,11 @@ button {
 .nav-icons {
   margin-right: 10px;
   font-size: 1.3em !important;
+}
+
+.v-dialog__content {
+  align-items: flex-start !important;
+  top: 2.1rem !important;
 }
 
 #logo {
