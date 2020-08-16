@@ -51,7 +51,7 @@
 
     <br />
 
-    <v-card class="mx-6 px-6 py-4">
+    <v-card class="other-cards">
       <h1>About Me</h1>
       <v-divider></v-divider>
 
@@ -101,7 +101,7 @@
 
     <br />
 
-    <v-card class="mx-6 px-6 py-4">
+    <v-card class="other-cards">
       <h1>Personal Story</h1>
       <v-divider></v-divider>
 
@@ -236,5 +236,17 @@ a {
 
 .push-right {
   margin-right: 2rem;
+}
+
+.other-cards {
+  margin: 0 2rem;
+  padding: 1rem 2rem;
+}
+
+@media screen and (max-width: 863px) {
+  .other-cards {
+    margin: 0;
+    padding: 0.8rem 1.2rem;
+  }
 }
 </style>
