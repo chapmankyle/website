@@ -37,7 +37,7 @@ npm install
 
 ```bash
 # start the development build
-npm start
+npm run serve
 ```
 
 The development version is now accessible at http://localhost:8080.
