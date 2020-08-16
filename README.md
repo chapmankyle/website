@@ -37,7 +37,7 @@ npm install
 
 ```bash
 # start the development build
-npm start
+npm run serve
 ```
 
 The development version is now accessible at http://localhost:8080.
@@ -54,7 +54,7 @@ files, you need to install `serve`.
 
 ```bash
 # install serve globally
-npm install -g serve
+sudo npm install -g serve
 ```
 
 Then run `serve` and give it a port to listen on.
