@@ -54,7 +54,7 @@ files, you need to install `serve`.
 
 ```bash
 # install serve globally
-npm install -g serve
+sudo npm install -g serve
 ```
 
 Then run `serve` and give it a port to listen on.
