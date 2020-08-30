@@ -71,10 +71,10 @@ export default Vue.extend({
       projects: [
         {
           title: "Work In Progress: smath",
-          github: "https://github.com/chapmankyle/simple-math",
+          github: "https://github.com/chapmankyle/smath",
           languages: "C++",
           description:
-            "A header-only C++ math library designed for use in graphics software.<br/><br/><em>smath</em> is written in C++17, is platform independent and has no external dependencies. Performance was favoured over accuracy for some of the functions, and currently only a small set of functions have been implemented.<br/>My aim for this library is to be able to use this in any future games that I develop, so that I have complete control over what all the functions do. It also makes it easier to add new features if the need arises.<br/>Developing this library has been really interesting because of my constant need for making existing functions faster."
+            "A header-only C++ math library designed for use in graphics software.<br/><br/><em>smath</em> is written in C++17, is platform independent and has no external dependencies. Performance was favoured over accuracy for some of the functions, and currently only a small set of functions have been implemented.<br/>My aim for this library is to be able to use this in any future games that I develop, so that I have complete control over what all the functions do. It also makes it easier to add new features if the need arises.<br/>Developing this library has been really interesting because I have to constantly learn new things."
         },
         {
           title: "Personal Website",
