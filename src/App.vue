@@ -16,12 +16,19 @@ import Vue from "vue";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 
+import axios from "axios";
+
 export default Vue.extend({
   name: "App",
 
   components: {
     Navbar,
     Footer
+  },
+
+  created() {
+    // make GET request so that page loads fast when data needs to be fetched
+    axios.get("https://kylechapman-api.herokuapp.com/");
   }
 });
 </script>
