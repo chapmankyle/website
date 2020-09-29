@@ -3,52 +3,59 @@
     <h1 class="first-heading">Projects</h1>
     <v-divider></v-divider>
 
-    <v-card v-for="(info, i) in projects" :key="i" class="mt-6 px-6 py-4">
-      <h2>{{ info.title }}</h2>
+    <div v-if="loading">
+      <v-skeleton-loader class="mt-6" type="card" loading></v-skeleton-loader>
+      <v-skeleton-loader class="mt-6" type="card" loading></v-skeleton-loader>
+      <v-skeleton-loader class="mt-6" type="card" loading></v-skeleton-loader>
+      <v-skeleton-loader class="mt-6" type="card" loading></v-skeleton-loader>
+      <v-skeleton-loader class="mt-6" type="card" loading></v-skeleton-loader>
+    </div>
 
-      <v-row v-if="info.image">
-        <v-col cols="12" sm="6" md="6">
-          <span v-html="info.description"></span>
+    <div class="mb-14" v-if="!loading">
+      <v-card v-for="(info, i) in projects" :key="i" class="mt-6 px-6 py-4">
+        <h2>{{ info.title }}</h2>
 
-          <br />
-          <br />
+        <v-row v-if="info.image">
+          <v-col cols="12" sm="6" md="6">
+            <span v-html="info.description"></span>
 
-          <span id="langs">Languages:</span>
-          <span> {{ info.languages }}</span>
+            <br />
+            <br />
 
-          <a :href="info.github" target="_blank" rel="noopener noreferrer">
-            <v-btn class="mt-6" color="#61afef" dark block>
-              View Code
-            </v-btn>
-          </a>
-        </v-col>
+            <span id="langs">Languages:</span>
+            <span> {{ info.languages }}</span>
 
-        <v-col cols="12" sm="6" md="6">
-          <v-img :src="info.image"></v-img>
-        </v-col>
-      </v-row>
+            <a :href="info.github" target="_blank" rel="noopener noreferrer">
+              <v-btn class="mt-6" color="#61afef" dark block>
+                View Code
+              </v-btn>
+            </a>
+          </v-col>
 
-      <v-row v-else>
-        <v-col cols="12" sm="12" md="12">
-          <span v-html="info.description"></span>
+          <v-col cols="12" sm="6" md="6">
+            <v-img :src="info.image"></v-img>
+          </v-col>
+        </v-row>
 
-          <br />
-          <br />
+        <v-row v-else>
+          <v-col cols="12" sm="12" md="12">
+            <span v-html="info.description"></span>
 
-          <span id="langs">Languages:</span>
-          <span> {{ info.languages }}</span>
+            <br />
+            <br />
 
-          <a :href="info.github" target="_blank" rel="noopener noreferrer">
-            <v-btn class="mt-6" color="#61afef" dark block>
-              View Code
-            </v-btn>
-          </a>
-        </v-col>
-      </v-row>
-    </v-card>
+            <span id="langs">Languages:</span>
+            <span> {{ info.languages }}</span>
 
-    <br />
-    <br />
+            <a :href="info.github" target="_blank" rel="noopener noreferrer">
+              <v-btn class="mt-6" color="#61afef" dark block>
+                View Code
+              </v-btn>
+            </a>
+          </v-col>
+        </v-row>
+      </v-card>
+    </div>
   </v-container>
 </template>
 
@@ -70,6 +77,8 @@ export default Vue.extend({
 
   data() {
     return {
+      loading: true,
+
       projects: [] as Project[]
     };
   },
@@ -78,6 +87,7 @@ export default Vue.extend({
     // get projects from API
     axios.get("https://kylechapman-api.herokuapp.com/projects").then(resp => {
       this.projects = resp.data;
+      this.loading = false;
     });
   }
 });

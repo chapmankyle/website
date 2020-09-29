@@ -3,7 +3,11 @@
     <h1 class="first-heading">Experience</h1>
     <v-divider></v-divider>
 
-    <v-card class="mt-4 mb-8 px-6 py-4">
+    <div v-if="loadingExp">
+      <v-skeleton-loader class="mt-6" type="image" loading></v-skeleton-loader>
+    </div>
+
+    <v-card v-if="!loadingExp" class="mt-4 mb-8 px-6 py-4">
       <v-timeline dense>
         <v-timeline-item
           v-for="(info, i) in experience"
@@ -43,7 +47,11 @@
     <h1 class="mt-4">Education</h1>
     <v-divider></v-divider>
 
-    <v-card class="mt-4 mb-8 px-6 py-4">
+    <div v-if="loadingEdu">
+      <v-skeleton-loader class="mt-6" type="image" loading></v-skeleton-loader>
+    </div>
+
+    <v-card v-if="!loadingEdu" class="mt-4 mb-8 px-6 py-4">
       <v-timeline dense>
         <v-timeline-item
           v-for="(info, i) in education"
@@ -109,6 +117,9 @@ export default Vue.extend({
 
   data() {
     return {
+      loadingExp: true,
+      loadingEdu: true,
+
       experience: [] as Exp[],
       education: [] as Education[]
     };
@@ -118,10 +129,12 @@ export default Vue.extend({
     // get experience and education from API
     axios.get("https://kylechapman-api.herokuapp.com/experience").then(resp => {
       this.experience = resp.data;
+      this.loadingExp = false;
     });
 
     axios.get("https://kylechapman-api.herokuapp.com/education").then(resp => {
       this.education = resp.data;
+      this.loadingEdu = false;
     });
   },
 
