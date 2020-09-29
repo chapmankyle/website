@@ -3,7 +3,11 @@
     <h1 class="first-heading">Experience</h1>
     <v-divider></v-divider>
 
-    <v-card class="mt-4 mb-8 px-6 py-4">
+    <div v-if="loadingExp">
+      <v-skeleton-loader class="mt-6" type="image" loading></v-skeleton-loader>
+    </div>
+
+    <v-card v-if="!loadingExp" class="mt-4 mb-8 px-6 py-4">
       <v-timeline dense>
         <v-timeline-item
           v-for="(info, i) in experience"
@@ -43,7 +47,11 @@
     <h1 class="mt-4">Education</h1>
     <v-divider></v-divider>
 
-    <v-card class="mt-4 mb-8 px-6 py-4">
+    <div v-if="loadingEdu">
+      <v-skeleton-loader class="mt-6" type="image" loading></v-skeleton-loader>
+    </div>
+
+    <v-card v-if="!loadingEdu" class="mt-4 mb-8 px-6 py-4">
       <v-timeline dense>
         <v-timeline-item
           v-for="(info, i) in education"
@@ -83,6 +91,8 @@
 <script lang="ts">
 import Vue from "vue";
 
+import axios from "axios";
+
 interface Exp {
   color: string;
   startDate: string;
@@ -107,58 +117,25 @@ export default Vue.extend({
 
   data() {
     return {
-      experience: [
-        {
-          color: "#e06c75",
-          startDate: "Dec 2019",
-          endDate: "Jan 2020",
-          title: "Web Development Internship",
-          company: "VASTech (Pty) Ltd.",
-          description:
-            "I worked on a visualization for geospatial data using OpenLayers, which allowed a user to interact with a map of the world. Various data points could be plotted and played around with in order to visualize specific elements of the data points. I learnt a lot about Vue as a whole, how to integrate OpenLayers with Vue and all the quirks of Javascript/Typescript development.",
-          technologies: ["VueJS", "Javascript", "Typescript", "OpenLayers"]
-        },
-        {
-          color: "#61afef",
-          startDate: "Jun 2019",
-          endDate: "Jul 2019",
-          title: "Python Internship",
-          company: "VASTech (Pty) Ltd.",
-          description:
-            "I worked on a speaker identification program, which took in an audio recording of multiple people speaking and output a separate folder for each speaker in that audio recording. I learnt a lot about the interaction between Python and REST APIs, and how to apply various alterations to audio so that the voices could be separated.",
-          technologies: ["Python", "REST", "cURL"]
-        }
-      ] as Exp[],
+      loadingExp: true,
+      loadingEdu: true,
 
-      education: [
-        {
-          color: "#e06c75",
-          startYear: "2020",
-          endYear: "present",
-          title: "Honours Degreee in Computer Science (BScHons)",
-          place: "University of Stellenbosch",
-          description:
-            "I am currently in my final year of a BScHons in Mathematical Sciences, Computer Science degree."
-        },
-        {
-          color: "#61afef",
-          startYear: "2017",
-          endYear: "2019",
-          title: "Bachelor’s Degree in Computer Science (BSc)",
-          place: "University of Stellenbosch",
-          description: "I completed my Bachelor’s Degree in November 2019."
-        },
-        {
-          color: "#98c379",
-          startYear: "2004",
-          endYear: "2016",
-          title: "Junior and High School",
-          place: "South African College School (SACS)",
-          description:
-            "Matriculated with a NSC Bachelor Pass and achieved the following six distinctions:<ul><li>English</li><li>Mathematics</li><li>Information Technology</li><li>Life Sciences</li><li>Geography</li><li>Life Orientation</li></ul>"
-        }
-      ] as Education[]
+      experience: [] as Exp[],
+      education: [] as Education[]
     };
+  },
+
+  created() {
+    // get experience and education from API
+    axios.get("https://kylechapman-api.herokuapp.com/experience").then(resp => {
+      this.experience = resp.data;
+      this.loadingExp = false;
+    });
+
+    axios.get("https://kylechapman-api.herokuapp.com/education").then(resp => {
+      this.education = resp.data;
+      this.loadingEdu = false;
+    });
   },
 
   methods: {
