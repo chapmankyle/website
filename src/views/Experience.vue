@@ -127,12 +127,12 @@ export default Vue.extend({
 
   created() {
     // get experience and education from API
-    axios.get("https://kylechapman-api.herokuapp.com/experience").then(resp => {
+    axios.get("https://kylechapman-api.netlify.app/experience").then(resp => {
       this.experience = resp.data;
       this.loadingExp = false;
     });
 
-    axios.get("https://kylechapman-api.herokuapp.com/education").then(resp => {
+    axios.get("https://kylechapman-api.netlify.app/education").then(resp => {
       this.education = resp.data;
       this.loadingEdu = false;
     });
