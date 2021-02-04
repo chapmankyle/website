@@ -55,14 +55,14 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: "/resume",
-    name: "Resume",
-    component: () => import("../views/Resume.vue"),
+    path: "/cv",
+    name: "CV",
+    component: () => import("../views/CV.vue"),
     meta: {
-      title: prefWithSep + " Resume",
+      title: prefWithSep + " CV",
       metaTags: [
         {
-          name: "Resume",
+          name: "CV",
           content: "My personal curriculum vitae."
         }
       ]

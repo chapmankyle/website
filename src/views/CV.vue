@@ -1,11 +1,11 @@
 <template>
   <v-container>
-    <h1 class="first-heading">Resume</h1>
+    <h1 class="first-heading">Curriculum Vitae</h1>
     <v-divider class="mb-6"></v-divider>
 
     <embed
       class="mb-10"
-      src="resume.pdf"
+      src="CV.pdf"
       type="application/pdf"
       width="100%"
       height="1200px"
@@ -17,7 +17,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "Resume"
+  name: "CV"
 });
 </script>
 
