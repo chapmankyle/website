@@ -86,9 +86,9 @@ export default Vue.extend({
           url: "/experience"
         },
         {
-          title: "Resume / CV",
+          title: "CV",
           icon: "mdi-note-text",
-          url: "/resume"
+          url: "/cv"
         }
       ] as NavButton[],
 
@@ -104,9 +104,9 @@ export default Vue.extend({
           url: "/experience"
         },
         {
-          title: "Resume / CV",
+          title: "CV",
           icon: "mdi-note-text",
-          url: "/resume"
+          url: "/cv"
         },
         {
           title: "Contact",
