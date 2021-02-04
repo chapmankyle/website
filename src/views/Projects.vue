@@ -85,7 +85,7 @@ export default Vue.extend({
 
   created() {
     // get projects from API
-    axios.get("https://kylechapman-api.herokuapp.com/projects").then(resp => {
+    axios.get("https://kylechapman-api.netlify.app/projects").then(resp => {
       this.projects = resp.data;
       this.loading = false;
     });
