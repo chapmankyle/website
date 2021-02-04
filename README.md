@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/github/v/release/chapmankyle/website.svg?" alt="Release"></img>
 </p>
 
-Official website is available at https://kylechapman.herokuapp.com/ :tada:
+Official website is available at https://kylechapman.netlify.app/ :tada:
 
 This repository serves as the source code for my personal website that accompanies my CV :memo:
 
