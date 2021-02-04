@@ -71,22 +71,28 @@
           <br />
 
           <p>
-            My name is <strong>Kyle Chapman</strong> and I am currently 21 years
-            old with a Bachelor of Science Honours degree in Computer Science.
-            My current interests are C++, Vulkan and Golang.
+            My name is <strong>Kyle Chapman</strong> and I am currently 22 years
+            old with a Bachelor of Science Honours degree in Computer Science
+            from Stellenbosch University. My current interests are Python, C++
+            and Golang.
+          </p>
+
+          <p>
+            <strong>Python</strong> is useful because of how versatile the
+            language is. A REST API is used to retrieve the information in the
+            <em>Projects</em> and <em>Experience and Education</em> tabs above,
+            which I wrote in Python. Flask was used to setup the endpoints,
+            where some of the endpoints accept <code>POST</code> requests,
+            allowing me to update the responses without touching the underlying
+            code.
           </p>
 
           <p>
             <strong>C++</strong> appeals to me because of how it gives you
             complete freedom to do what you want, but with great power comes
-            great responsibility.
-          </p>
-
-          <p>
-            <strong>Vulkan</strong> is appealing because of how everything needs
-            to be set up by the programmer, so it requires that you know what
-            you are doing and does no hand-holding. Once I have cemented my
-            knowledge in C++, I aim to create a game engine using Vulkan.
+            great responsibility. I enjoy the lower level aspect of the
+            language, where you have control of almost every aspect of the
+            application.
           </p>
 
           <span>
