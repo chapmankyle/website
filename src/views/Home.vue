@@ -8,13 +8,9 @@
     >
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
-          <h1 class="jumbo-padding">Kyle Chapman</h1>
-          <h2 class="jumbo-padding font-weight-thin">
-            Cape Town, South Africa
-          </h2>
-          <h2 class="jumbo-padding font-weight-thin">
-            Junior Software Developer
-          </h2>
+          <h1 class="jumbo-padding">{{ banner.name }}</h1>
+          <h2 class="jumbo-padding font-weight-thin">{{ banner.location }}</h2>
+          <h2 class="jumbo-padding font-weight-thin">{{ banner.position }}</h2>
 
           <div class="jumbo-padding">
             <v-btn class="push-right" icon dark x-large>
@@ -67,40 +63,16 @@
           </v-img>
         </v-col>
         <v-col cols="12" sm="6" md="6">
-          <h2 id="intro-heading">Hello there!</h2>
+          <h2 id="intro-heading">{{ about.title }}</h2>
           <br />
 
-          <p>
-            My name is <strong>Kyle Chapman</strong> and I am currently 22 years
-            old with a Bachelor of Science Honours degree in Computer Science
-            from Stellenbosch University. My current interests are Python, C++
-            and Golang.
-          </p>
+          <p v-html="about.description"></p>
 
-          <p>
-            <strong>Python</strong> is useful because of how versatile the
-            language is. A REST API is used to retrieve the information in the
-            <em>Projects</em> and <em>Experience and Education</em> tabs above,
-            which I wrote in Python. Flask was used to setup the endpoints,
-            where some of the endpoints accept <code>POST</code> requests,
-            allowing me to update the responses without touching the underlying
-            code.
-          </p>
+          <div v-for="(info, i) in about.content" :key="i">
+            <p v-html="info"></p>
+          </div>
 
-          <p>
-            <strong>C++</strong> appeals to me because of how it gives you
-            complete freedom to do what you want, but with great power comes
-            great responsibility. I enjoy the lower level aspect of the
-            language, where you have control of almost every aspect of the
-            application.
-          </p>
-
-          <span>
-            <strong>Golang</strong> is interesting because of how relatively new
-            it is, compared to other languages, and how it deals with
-            concurrency. I used Golang extensively for my Honours project and
-            thoroughly enjoyed it.
-          </span>
+          <span v-html="about.content_last"></span>
         </v-col>
       </v-row>
     </v-card>
@@ -149,62 +121,54 @@
 <script lang="ts">
 import Vue from "vue";
 
+import axios from "axios";
+
+interface Banner {
+  name: string;
+  location: string;
+  position: string;
+}
+
+interface About {
+  title: string;
+  description: string;
+  content: string[];
+  content_last: string;
+}
+
+interface Story {
+  title: string;
+  year: string;
+  icon: string;
+  color: string;
+  content: string;
+}
+
 export default Vue.extend({
   name: "Home",
 
   data() {
     return {
-      timeline: [
-        {
-          color: "#e06c75",
-          year: "1998",
-          icon: "mdi-baby-face",
-          title: "Date of Birth",
-          content:
-            "I was born on <strong>18 December 1998</strong> at Vergelegen Mediclinic in Somerset West, Cape Town, South Africa. I was told that I was born at roughly 09:00 in the morning and that it was a Friday."
-        },
-        {
-          color: "#61afef",
-          year: "2002",
-          icon: "mdi-dog",
-          title: "My First Pet",
-          content:
-            "I got my first pet Labrador Retriever for my 4<sup>th</sup> birthday party and I immediately fell in love with her. <strong>Tazzy</strong> was her name and she was the most amazing pet I ever had."
-        },
-        {
-          color: "#98c379",
-          year: "2004",
-          icon: "mdi-car-child-seat",
-          title: "Started Junior School",
-          content:
-            "I started my education at <strong>SACS Junior School</strong> in Newlands, Cape Town, South Africa. I used to make paper cell phones, because my mom wouldn't let me have a real phone until I was 13, and paper laptops to pretend that I was a <em>hackerman</em> that could take over the world."
-        },
-        {
-          color: "#e06c75",
-          year: "2012",
-          icon: "mdi-bus-school",
-          title: "Started High School",
-          content:
-            "I started in grade 8 at <strong>SACS High School</strong> and completed my schooling education here. I took Biology, Geography and IT as my three subjects of choice from grades 10 to 12. I was told that we would be doing Java as the main programming language in IT and so I decided to get ahead of the class by studying <em>Javascript</em> in my holidays. Little did I know that <em>Java</em> and <em>Javascript</em> are two completely different programming languages."
-        },
-        {
-          color: "#61afef",
-          year: "2017",
-          icon: "mdi-school",
-          title: "Started Undergraduate Degree",
-          content:
-            "I started my undergraduate degree in a <strong>Bachelor of Science in Mathematical Sciences in Computer Science</strong> at the University of Stellenbosch on 17 January 2017. After three years of study, many late nights and many visits to StackOverflow, I finished my undergraduate degree with 3 distinctions in November 2019.<br /><br />I took a wide variety of modules in my 3 years, namely:<ul><li>Probability Theory and Statistics</li><li>Scientific Communication</li><li>Mathematics</li><li>Economics</li><li>Operations Research</li><li>Applied Mathematics</li><li>Computer Science</li></ul>"
-        },
-        {
-          color: "#98c379",
-          year: "2020",
-          icon: "mdi-script",
-          title: "Started Postgraduate Degree",
-          content:
-            "I started my postgraduate degree in a <strong>Bachelor of Science Honours in Mathematical Sciences in Computer Science</strong> at the University of Stellenbosch on 3 February 2020. After a full year of non-stop work and an ongoing pandemic, I finished my postgraduate degree in November 2020 and aim to start working in January 2021. <br /><br />The modules that I took in the first semester, from February to July, were:<ul><li>Computational Intelligence</li><li>Advanced Algorithms</li><li>Space Science</li></ul><br />The modules that I took in the second semester, from July to November, were:<ul><li>Digital Image Processing</li><li>Functional Programming</li><li>Machine Learning</li></ul>"
-        }
-      ]
+      banner: {} as Banner,
+      about: {} as About,
+
+      timeline: [] as Story[]
     };
+  },
+
+  created() {
+    // get information from API
+    axios.get("https://kylechapman-api.netlify.app/banner").then(resp => {
+      this.banner = resp.data;
+    });
+
+    axios.get("https://kylechapman-api.netlify.app/about").then(resp => {
+      this.about = resp.data;
+    });
+
+    axios.get("https://kylechapman-api.netlify.app/story").then(resp => {
+      this.timeline = resp.data;
+    });
   }
 });
 </script>
