@@ -22,7 +22,7 @@
               {{ info.title }}
             </h2>
 
-            <span style="text-align: left;">
+            <span style="text-align: left">
               <strong>{{ info.startDate }}</strong>
               &mdash;
               <strong>{{ info.endDate }}</strong>
@@ -66,7 +66,7 @@
               {{ info.title }}
             </h2>
 
-            <span style="text-align: left;">
+            <span style="text-align: left">
               <strong>{{ info.startYear }}</strong>
               &mdash;
               <strong>{{ info.endYear }}</strong>
@@ -121,18 +121,18 @@ export default Vue.extend({
       loadingEdu: true,
 
       experience: [] as Exp[],
-      education: [] as Education[]
+      education: [] as Education[],
     };
   },
 
   created() {
     // get experience and education from API
-    axios.get("https://kylechapman-api.netlify.app/experience").then(resp => {
+    axios.get("https://kylechapman-api.netlify.app/experience").then((resp) => {
       this.experience = resp.data;
       this.loadingExp = false;
     });
 
-    axios.get("https://kylechapman-api.netlify.app/education").then(resp => {
+    axios.get("https://kylechapman-api.netlify.app/education").then((resp) => {
       this.education = resp.data;
       this.loadingEdu = false;
     });
@@ -144,7 +144,7 @@ export default Vue.extend({
      * @param technologies The technologies to convert.
      * @returns {string} A single string of the technologies.
      */
-    convertTechToString: function(technologies: string[]): string {
+    convertTechToString: function (technologies: string[]): string {
       let str = "";
 
       for (let i = 0; i < technologies.length; i++) {
@@ -158,8 +158,8 @@ export default Vue.extend({
       }
 
       return str;
-    }
-  }
+    },
+  },
 });
 </script>
 

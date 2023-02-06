@@ -26,9 +26,7 @@
             <span> {{ info.languages }}</span>
 
             <a :href="info.github" target="_blank" rel="noopener noreferrer">
-              <v-btn class="mt-6" color="#61afef" dark block>
-                View Code
-              </v-btn>
+              <v-btn class="mt-6" color="#61afef" dark block>View Code</v-btn>
             </a>
           </v-col>
 
@@ -48,9 +46,7 @@
             <span> {{ info.languages }}</span>
 
             <a :href="info.github" target="_blank" rel="noopener noreferrer">
-              <v-btn class="mt-6" color="#61afef" dark block>
-                View Code
-              </v-btn>
+              <v-btn class="mt-6" color="#61afef" dark block>View Code</v-btn>
             </a>
           </v-col>
         </v-row>
@@ -79,17 +75,17 @@ export default Vue.extend({
     return {
       loading: true,
 
-      projects: [] as Project[]
+      projects: [] as Project[],
     };
   },
 
   created() {
     // get projects from API
-    axios.get("https://kylechapman-api.netlify.app/projects").then(resp => {
+    axios.get("https://kylechapman-api.netlify.app/projects").then((resp) => {
       this.projects = resp.data;
       this.loading = false;
     });
-  }
+  },
 });
 </script>
 

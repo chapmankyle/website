@@ -67,7 +67,7 @@ export default Vue.extend({
   name: "Navbar",
 
   props: {
-    title: String
+    title: String,
   },
 
   data() {
@@ -78,42 +78,42 @@ export default Vue.extend({
         {
           title: "Projects",
           icon: "mdi-bag-personal",
-          url: "/projects"
+          url: "/projects",
         },
         {
           title: "Experience And Education",
           icon: "mdi-bank",
-          url: "/experience"
+          url: "/experience",
         },
         {
           title: "CV",
           icon: "mdi-note-text",
-          url: "/cv"
-        }
+          url: "/cv",
+        },
       ] as NavButton[],
 
       buttonsWithContact: [
         {
           title: "Projects",
           icon: "mdi-bag-personal",
-          url: "/projects"
+          url: "/projects",
         },
         {
           title: "Experience And Education",
           icon: "mdi-bank",
-          url: "/experience"
+          url: "/experience",
         },
         {
           title: "CV",
           icon: "mdi-note-text",
-          url: "/cv"
+          url: "/cv",
         },
         {
           title: "Contact",
           icon: "mdi-cellphone-iphone",
-          url: "/contact"
-        }
-      ] as NavButton[]
+          url: "/contact",
+        },
+      ] as NavButton[],
     };
   },
 
@@ -121,10 +121,10 @@ export default Vue.extend({
     /**
      * Toggles the menu selection.
      */
-    toggleMenu: function() {
+    toggleMenu: function () {
       this.menuSelected = !this.menuSelected;
-    }
-  }
+    },
+  },
 });
 </script>
 

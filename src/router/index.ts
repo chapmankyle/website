@@ -21,10 +21,10 @@ const routes: Array<RouteConfig> = [
       metaTags: [
         {
           name: "Home page",
-          content: "The home page for my portfolio website."
-        }
-      ]
-    }
+          content: "The home page for my portfolio website.",
+        },
+      ],
+    },
   },
   {
     path: "/projects",
@@ -35,10 +35,10 @@ const routes: Array<RouteConfig> = [
       metaTags: [
         {
           name: "Projects",
-          content: "The projects that I have worked on throughout the years."
-        }
-      ]
-    }
+          content: "The projects that I have worked on throughout the years.",
+        },
+      ],
+    },
   },
   {
     path: "/experience",
@@ -49,10 +49,10 @@ const routes: Array<RouteConfig> = [
       metaTags: [
         {
           name: "Experience",
-          content: "My work experience."
-        }
-      ]
-    }
+          content: "My work experience.",
+        },
+      ],
+    },
   },
   {
     path: "/cv",
@@ -63,10 +63,10 @@ const routes: Array<RouteConfig> = [
       metaTags: [
         {
           name: "CV",
-          content: "My personal curriculum vitae."
-        }
-      ]
-    }
+          content: "My personal curriculum vitae.",
+        },
+      ],
+    },
   },
   {
     path: "/contact",
@@ -77,10 +77,10 @@ const routes: Array<RouteConfig> = [
       metaTags: [
         {
           name: "Contact",
-          content: "Contact me directly."
-        }
-      ]
-    }
+          content: "Contact me directly.",
+        },
+      ],
+    },
   },
   {
     path: "*",
@@ -91,11 +91,11 @@ const routes: Array<RouteConfig> = [
       metaTags: [
         {
           name: "Page Not Found",
-          content: "The page requested is not available."
-        }
-      ]
-    }
-  }
+          content: "The page requested is not available.",
+        },
+      ],
+    },
+  },
 ];
 
 // construct router
@@ -108,7 +108,7 @@ const router = new VueRouter({
     } else {
       return { x: 0, y: 0 };
     }
-  }
+  },
 });
 
 /**
@@ -121,20 +121,20 @@ router.beforeEach((to, from, next) => {
   const nearestWithTitle = to.matched
     .slice()
     .reverse()
-    .find(r => r.meta && r.meta.title);
+    .find((r) => r.meta && r.meta.title);
 
   // Find the nearest route element with meta tags.
   const nearestWithMeta = to.matched
     .slice()
     .reverse()
-    .find(r => r.meta && r.meta.metaTags);
+    .find((r) => r.meta && r.meta.metaTags);
 
   // If a route with a title was found, set the document (page) title to that value.
   if (nearestWithTitle) document.title = nearestWithTitle.meta.title;
 
   // Remove any stale meta tags from the document using the key attribute we set below.
   Array.from(document.querySelectorAll("[data-vue-router-controlled]")).map(
-    el => {
+    (el) => {
       if (el.parentNode == null) {
         return;
       }
@@ -151,7 +151,7 @@ router.beforeEach((to, from, next) => {
     .map((tagDef: any) => {
       const tag = document.createElement("meta");
 
-      Object.keys(tagDef).forEach(key => {
+      Object.keys(tagDef).forEach((key) => {
         tag.setAttribute(key, tagDef[key]);
       });
 

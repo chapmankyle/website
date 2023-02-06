@@ -21,8 +21,8 @@ export default Vue.extend({
 
   components: {
     Navbar,
-    Footer
-  }
+    Footer,
+  },
 });
 </script>
 

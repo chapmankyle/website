@@ -3,7 +3,7 @@
     <v-parallax
       id="jumbo"
       dark
-      style="height: 400px;"
+      style="height: 400px"
       src="https://user-images.githubusercontent.com/43512442/89060263-035ef800-d363-11ea-9546-ca6cb1ff5acf.png"
     >
       <v-row align="center" justify="center">
@@ -152,24 +152,24 @@ export default Vue.extend({
       banner: {} as Banner,
       about: {} as About,
 
-      timeline: [] as Story[]
+      timeline: [] as Story[],
     };
   },
 
   created() {
     // get information from API
-    axios.get("https://kylechapman-api.netlify.app/banner").then(resp => {
+    axios.get("https://kylechapman-api.netlify.app/banner").then((resp) => {
       this.banner = resp.data;
     });
 
-    axios.get("https://kylechapman-api.netlify.app/about").then(resp => {
+    axios.get("https://kylechapman-api.netlify.app/about").then((resp) => {
       this.about = resp.data;
     });
 
-    axios.get("https://kylechapman-api.netlify.app/story").then(resp => {
+    axios.get("https://kylechapman-api.netlify.app/story").then((resp) => {
       this.timeline = resp.data;
     });
-  }
+  },
 });
 </script>
 

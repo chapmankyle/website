@@ -28,20 +28,6 @@
             LinkedIn
           </a>
         </v-col>
-
-        <v-col cols="12" sm="12" md="12">
-          <v-icon id="facebook-icon" class="mr-4" x-large>
-            mdi-facebook-box
-          </v-icon>
-          <a
-            href="https://www.facebook.com/kyle.chapman.5011/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cont"
-          >
-            Facebook
-          </a>
-        </v-col>
       </v-row>
     </v-card>
   </v-container>
@@ -57,9 +43,9 @@ export default Vue.extend({
     return {
       senderName: "",
       senderEmail: "",
-      senderMessage: ""
+      senderMessage: "",
     };
-  }
+  },
 });
 </script>
 
