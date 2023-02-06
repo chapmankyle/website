@@ -31,15 +31,6 @@
                 <v-icon class="large-icon" dark>mdi-linkedin-box</v-icon>
               </a>
             </v-btn>
-            <v-btn icon dark x-large>
-              <a
-                href="https://www.facebook.com/kyle.chapman.5011/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <v-icon class="large-icon" dark>mdi-facebook-box</v-icon>
-              </a>
-            </v-btn>
           </div>
         </v-col>
       </v-row>
