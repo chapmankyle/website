@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:11.15
+      - image: cimg/node:16.8
 
     working_directory: ~/repo
 
@@ -17,7 +17,15 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install && npm run build
+      # Install dependencies
+      - run:
+          name: Install dependencies
+          command: npm install
+
+      # Build for production
+      - run:
+          name: Build
+          command: npm run build
 
       - save_cache:
           paths:
