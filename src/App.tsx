@@ -1,18 +1,15 @@
-import { useState } from 'react'
+import React from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Counter from "@/features/counter/Counter";
 
+/**
+ * Main app.
+ */
+export default function App() {
   return (
     <div>
-      <div className='font-bold'>Kyle Chapman</div>
-      <div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <div className='font-bold text-lg'>Kyle Chapman</div>
+      <Counter />
     </div>
   )
 }
-
-export default App
