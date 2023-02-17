@@ -21,8 +21,8 @@ git clone git@github.com:chapmankyle/website.git
 cd website
 ```
 
-You need to have [Node.js](https://nodejs.org/) installed in order to compile
-from the source code.
+You need to have [Node.js](https://nodejs.org/) version 16.8 or above installed
+in order to compile from the source code.
 
 # Building :hammer:
 
@@ -37,10 +37,10 @@ npm install
 
 ```bash
 # start the development build
-npm run serve
+npm run dev
 ```
 
-The development version is now accessible at http://localhost:8080.
+The development version is now accessible at http://localhost:5173.
 
 ## :computer: Production Build
 
