@@ -19,7 +19,7 @@ jobs:
 
       # Install dependencies
       - run:
-          name: Install dependencies
+          name: Installing dependencies
           command: npm install
 
       # Build for production
