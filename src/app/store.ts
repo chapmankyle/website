@@ -1,11 +1,11 @@
 import { configureStore, Action, ThunkAction } from '@reduxjs/toolkit'
 
-import counterReducer from '@/features/counter/counterSlice'
+import debugReducer from '@/features/debugSlice'
 
 // Configure the global store
 export const store = configureStore({
   reducer: {
-    counter: counterReducer
+    debug: debugReducer
   }
 })
 

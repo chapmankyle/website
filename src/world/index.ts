@@ -1,7 +1,11 @@
 import { BoxGeometry, Mesh, MeshNormalMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three'
 
+import { store } from '@/app/store'
+import { update as debugUpdate } from '@/features/debugSlice'
+
+import DebugInfo from '@/utilities/debugInfo'
+import TaskManager from '@/utilities/taskManager'
 import Graphics from './graphics'
-import TaskManager from '../utilities/taskManager'
 
 /**
  * World renderer.
@@ -20,8 +24,20 @@ export default class World {
   /** Mesh to render */
   mesh: Mesh | null = null
 
+  /** Reference to the debug information */
+  debugInfo: DebugInfo | null = null
+
   /** Identifier of the resize task */
   resizeTaskID: number | null = null
+
+  /** Current number of frames per second */
+  fps = 0
+
+  /** Number of frames that have been rendered */
+  frameCount = 0
+
+  /** Last time the number of frames were counted */
+  lastFrameUpdateTime = 0
 
   /** @private `true` if the world has been created, `false` otherwise. */
   isCreated = false
@@ -52,6 +68,9 @@ export default class World {
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.renderer.setPixelRatio(Graphics.pixelRatio)
     this.renderer.setAnimationLoop(this.render)
+
+    // Setup debug information
+    this.debugInfo = new DebugInfo()
 
     // Add listener for window resize
     window.addEventListener('resize', this.onResize)
@@ -121,11 +140,23 @@ export default class World {
       return
     }
 
+    const now = Date.now()
+
     this.mesh.rotation.x = delta / 2000
     this.mesh.rotation.y = delta / 1000
 
     // Update task manager
     TaskManager.update()
+
+    // Update current frame count
+    this.frameCount += 1
+    if (now - this.lastFrameUpdateTime >= 1000) {
+      this.fps = this.frameCount
+      this.lastFrameUpdateTime = now
+      this.frameCount = 0
+
+      store.dispatch(debugUpdate({ fps: this.fps }))
+    }
 
     // Render scene
     this.renderer.render(this.scene, this.camera)
