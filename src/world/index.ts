@@ -3,7 +3,6 @@ import { BoxGeometry, Mesh, MeshNormalMaterial, PerspectiveCamera, Scene, WebGLR
 import { store } from '@/app/store'
 import { update as debugUpdate } from '@/features/debugSlice'
 
-import DebugInfo from '@/utilities/debugInfo'
 import TaskManager from '@/utilities/taskManager'
 import Graphics from './graphics'
 
@@ -24,9 +23,6 @@ export default class World {
   /** Mesh to render */
   mesh: Mesh | null = null
 
-  /** Reference to the debug information */
-  debugInfo: DebugInfo | null = null
-
   /** Identifier of the resize task */
   resizeTaskID: number | null = null
 
@@ -39,8 +35,8 @@ export default class World {
   /** Last time the number of frames were counted */
   lastFrameUpdateTime = 0
 
-  /** @private `true` if the world has been created, `false` otherwise. */
-  isCreated = false
+  /** `true` if the world has been created, `false` otherwise. */
+  private isCreated = false
 
   /**
    * Creates the world.
@@ -68,9 +64,6 @@ export default class World {
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.renderer.setPixelRatio(Graphics.pixelRatio)
     this.renderer.setAnimationLoop(this.render)
-
-    // Setup debug information
-    this.debugInfo = new DebugInfo()
 
     // Add listener for window resize
     window.addEventListener('resize', this.onResize)

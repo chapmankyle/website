@@ -1,3 +1,4 @@
+import DebugInfo from '@/features/debugInfo'
 import World from './world'
 
 // Create canvas for 3D rendering
@@ -13,9 +14,11 @@ world.create(worldCanvas)
  * Main app.
  */
 export default function App(): JSX.Element {
-  return (
+  return <>
+    <DebugInfo />
+
     <div className='flex absolute bottom-0 w-full h-8 items-center px-3 text-white'>
       Copyright &copy; Kyle Chapman 2023
     </div>
-  )
+  </>
 }
