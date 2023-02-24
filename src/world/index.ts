@@ -1,10 +1,11 @@
 import { BoxGeometry, Mesh, MeshNormalMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three'
 
-import { store } from '@/app/store'
-import { update as debugUpdate } from '@/features/debugSlice'
-
+import Graphics from '@/world/graphics'
 import TaskManager from '@/utilities/taskManager'
-import Graphics from './graphics'
+import Timer from '@/utilities/timer'
+
+import { store } from '@/app/store'
+import { DebugState, update as debugUpdate } from '@/features/debugSlice'
 
 /**
  * World renderer.
@@ -38,6 +39,11 @@ export default class World {
   /** `true` if the world has been created, `false` otherwise. */
   private isCreated = false
 
+  /** Timers to keep track of how long certain processes take. */
+  private timers = {
+    render: new Timer()
+  }
+
   /**
    * Creates the world.
    * @param canvas Canvas to draw world to.
@@ -65,6 +71,9 @@ export default class World {
     this.renderer.setPixelRatio(Graphics.pixelRatio)
     this.renderer.setAnimationLoop(this.render)
 
+    // Fetch graphics information
+    this.updateGraphicsInfo()
+
     // Add listener for window resize
     window.addEventListener('resize', this.onResize)
 
@@ -74,6 +83,26 @@ export default class World {
     })
 
     this.isCreated = true
+  }
+
+  /** Updates the graphics information */
+  updateGraphicsInfo() {
+    if (!this.renderer) {
+      return
+    }
+
+    // Find render info extension
+    const context = this.renderer.getContext()
+    const glInfo = context.getExtension('WEBGL_debug_renderer_info')
+    if (!glInfo) {
+      console.log('[World] No WEBGL_debug_renderer_info extension present.')
+      return
+    }
+
+    const vendor = context.getParameter(glInfo.UNMASKED_VENDOR_WEBGL) || '?'
+    const renderer = context.getParameter(glInfo.UNMASKED_RENDERER_WEBGL) || '?'
+    const glVersion = this.renderer.capabilities.isWebGL2 ? 'WebGL2' : 'WebGL1'
+    store.dispatch(debugUpdate({ graphicsVendor: vendor, graphicsRenderer: renderer, webglVersion: glVersion }))
   }
 
   /** Destroys the world. */
@@ -141,6 +170,8 @@ export default class World {
     // Update task manager
     TaskManager.update()
 
+    const debugStoreUpdate = {} as DebugState
+
     // Update current frame count
     this.frameCount += 1
     if (now - this.lastFrameUpdateTime >= 1000) {
@@ -148,11 +179,32 @@ export default class World {
       this.lastFrameUpdateTime = now
       this.frameCount = 0
 
-      store.dispatch(debugUpdate({ fps: this.fps }))
+      debugStoreUpdate.fps = this.fps
     }
 
     // Render scene
+    this.timers.render.start()
     this.renderer.render(this.scene, this.camera)
+    this.timers.render.stop()
+
+    // Update render timings
+    if (now - this.timers.render.lastUpdateTime >= 1000) {
+      debugStoreUpdate.renderDuration = this.timers.render.elapsed
+      debugStoreUpdate.renderMaxDuration = this.timers.render.max
+
+      this.timers.render.lastUpdateTime = now
+      this.timers.render.reset()
+    }
+
+    // Update renderer information
+    debugStoreUpdate.rendererInfo = {
+      calls: this.renderer.info.render.calls,
+      triangles: this.renderer.info.render.triangles,
+      meshes: this.renderer.info.memory.geometries,
+      textures: this.renderer.info.memory.textures
+    }
+
+    store.dispatch(debugUpdate(debugStoreUpdate))
   }
 
 }
