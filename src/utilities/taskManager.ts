@@ -20,24 +20,30 @@ let taskID = 0
  */
 export default new class TaskManager {
 
-  /** Task manager to use in case renderer has encountered an issue. */
-  backupManager = 0
-
   /** Last time the tasks were updated. */
   lastUpdate = 0
 
   /** `true` if the tasks are busy being updated, `false` otherwise. */
   isUpdating = false
 
-  /** @private Tasks that have been registered. */
-  tasks = [] as Task[]
+  /** Task manager to use in case renderer has encountered an issue. */
+  private backupManager = 0
 
-  /** @private Timeout for the backup task manager. */
-  updateTimeout = 250
+  /** Tasks that have been registered. */
+  private tasks = [] as Task[]
+
+  /** Timeout for the backup task manager. */
+  private updateTimeout = 250
 
   /** Constructor */
   constructor() {
-    this.backupManager = window.setInterval(this.updateBackup, this.updateTimeout)
+    this.backupManager = setInterval(this.updateBackup, this.updateTimeout)
+  }
+
+  /** Destroys the task manager, preventing any existing tasks from being run. */
+  destroy(): void {
+    this.tasks.length = 0
+    clearInterval(this.backupManager)
   }
 
   /** Updates the currently existing tasks. */
@@ -87,16 +93,6 @@ export default new class TaskManager {
     this.isUpdating = false
   }
 
-  /** @private Updates the backup task manager. */
-  updateBackup = (): void => {
-    if (this.isUpdating || Date.now() - this.lastUpdate < this.updateTimeout) {
-      return
-    }
-
-    // Update if task manager has not been working correctly
-    this.update()
-  }
-
   /**
    * Run the task once after the given delay has elapsed.
    * @param callback Function to execute when running the task.
@@ -133,6 +129,16 @@ export default new class TaskManager {
 
     // Remove task
     this.tasks.splice(idx, 1)
+  }
+
+  /** Updates the backup task manager. */
+  private updateBackup = (): void => {
+    if (this.isUpdating || Date.now() - this.lastUpdate < this.updateTimeout) {
+      return
+    }
+
+    // Update if task manager has not been working correctly
+    this.update()
   }
 
 }
