@@ -32,11 +32,6 @@ jobs:
             - ./node_modules
             - ./package-lock.json
 
-      - persist_to_workspace:
-          root: ~/app
-          paths: 
-            - dist/*
-
   # Build the app
   build:
     docker:
