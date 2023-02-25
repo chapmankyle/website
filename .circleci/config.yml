@@ -66,8 +66,8 @@ jobs:
           paths: dist
 
 workflows:
-  version: 2
 
+  # Lint and build
   lint-build:
     jobs:
       - lint:
