@@ -34,7 +34,7 @@ export default class DebugInfo extends PureComponent {
 
   /** Render component */
   render() {
-    return <div id='debug-info' className='absolute right-0 top-0 z-10 px-2 py-1 font-mono text-xs bg-zinc-800/70 whitespace-pre-line'>
+    return <div id='debug-info' className='absolute right-0 top-12 z-10 px-2 py-1 font-mono text-xs hidden sm:block bg-zinc-900/70 whitespace-pre-line'>
       { this.state.text }
     </div>
   }

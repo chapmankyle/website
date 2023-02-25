@@ -1,5 +1,6 @@
 import DebugInfo from '@/features/debugInfo'
-import World from './world'
+import Navbar from '@/ui/navbar'
+import World from '@/world'
 
 // Create canvas for 3D rendering
 const worldCanvas = document.createElement('canvas')
@@ -15,6 +16,7 @@ world.create(worldCanvas)
  */
 export default function App(): JSX.Element {
   return <>
+    <Navbar />
     <DebugInfo />
 
     <div className='flex absolute bottom-0 w-full h-8 items-center px-3 text-white'>
