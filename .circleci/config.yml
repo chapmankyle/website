@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 jobs:
 
@@ -29,7 +29,8 @@ jobs:
 
       - persist_to_workspace:
           root: ~/app
-          paths: dist
+          paths: 
+            - dist/*
 
   # Build the app
   build:
@@ -63,7 +64,8 @@ jobs:
 
       - persist_to_workspace:
           root: ~/app
-          paths: dist
+          paths:
+            - dist/*
 
 workflows:
 
