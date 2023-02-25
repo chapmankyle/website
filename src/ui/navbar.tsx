@@ -16,8 +16,8 @@ const contactBtn = { id: 'contact', text: 'Contact', icon: HiOutlineEnvelopeOpen
  * Shows a navigation bar at the top of the screen.
  */
 export default function Navbar() {
-  let [ isOpen, setOpen ] = useState(false)
-  let [ selectedBtn, setSelectedBtn ] = useState(navButtons[0].id)
+  const [ isOpen, setOpen ] = useState(false)
+  const [ selectedBtn, setSelectedBtn ] = useState(navButtons[0].id)
 
   // Called when a navigation button is clicked
   function onButtonClick(button: string): void {
@@ -39,7 +39,7 @@ export default function Navbar() {
       <div className='relative flex h-12 items-center justify-between'>
         <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
           {/* Mobile menu button */}
-          <button type='button' onClick={e => setOpen(!isOpen)} className='inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:bg-zinc-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white' aria-controls='mobile-menu' aria-expanded={isOpen ? 'true' : 'false'}>
+          <button type='button' onClick={() => setOpen(!isOpen)} className='inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:bg-zinc-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white' aria-controls='mobile-menu' aria-expanded={isOpen ? 'true' : 'false'}>
             <span className='sr-only'>Open main menu</span>
 
             {/* Icon when menu is closed */}
@@ -105,7 +105,7 @@ const NavButton: FC<NavButtonProps> = (props) => {
   const hiddenOnMobile = !!props.hideTextMobile
 
   // Render
-  return <button type='button' onClick={e => props.onClick()} className={`flex items-center w-full sm:w-auto px-3 py-2 text-gray-300 border-b border-transparent ${selectedStyle} hover:text-white sm:hover:border-white rounded-md sm:rounded-none ${props.selected ? 'bg-zinc-600' : 'bg-transparent'} sm:bg-transparent text-base transition-all duration-300 cursor-pointer`}>
+  return <button type='button' onClick={() => props.onClick()} className={`flex items-center w-full sm:w-auto px-3 py-2 text-gray-300 border-b border-transparent ${selectedStyle} hover:text-white sm:hover:border-white rounded-md sm:rounded-none ${props.selected ? 'bg-zinc-600' : 'bg-transparent'} sm:bg-transparent text-base transition-all duration-300 cursor-pointer`}>
     <props.icon className={`${hiddenOnMobile ? 'mr-0' : 'mr-2'} sm:mr-2`} />
     <span className={`${hiddenOnMobile ? 'hidden' : 'block'} sm:block`}>
       { props.text }

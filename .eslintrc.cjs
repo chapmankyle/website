@@ -1,0 +1,22 @@
+module.exports = {
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  plugins: ['@typescript-eslint'],
+  parser: '@typescript-eslint/parser',
+  root: true,
+  rules: {
+    '@typescript-eslint/no-explicit-any': 0,
+    'arrow-spacing': 2,
+    'indent': [2, 2],
+    'keyword-spacing': 2,
+    'no-await-in-loop': 2,
+    'no-duplicate-imports': 2,
+    'no-trailing-spaces': 2,
+    'no-var': 2,
+    'comma-dangle': [2, 'always-multiline'],
+    'eol-last': [2, 'always'],
+    'quotes': [2, 'single'],
+    'semi': [2, 'never'],
+    'space-before-function-paren': [2, 'never'],
+    'yoda': [2, 'never'],
+  },
+}

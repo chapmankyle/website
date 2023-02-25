@@ -99,7 +99,7 @@ export default new class TaskManager {
    * @param delay Number of milliseconds to wait before running this task.
    * @returns Identifier of the task that has been scheduled to run.
    */
-  runOnce(callback: () => void, delay: number = 0): number {
+  runOnce(callback: () => void, delay = 0): number {
     const id = taskID++
     this.tasks.push({ id, delay, nextRun: Date.now() + delay, infinite: false, callback })
     return id
@@ -111,7 +111,7 @@ export default new class TaskManager {
    * @param interval Number of milliseconds to wait before each consecutive execution of the task.
    * @returns Identifier of the task that has been scheduled to run.
    */
-  runEvery(callback: () => void, interval: number = 0): number {
+  runEvery(callback: () => void, interval = 0): number {
     const id = taskID++
     this.tasks.push({ id, delay: interval, nextRun: Date.now() + interval, infinite: true, callback })
     return id

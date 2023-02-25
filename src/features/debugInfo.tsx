@@ -10,7 +10,7 @@ export default class DebugInfo extends PureComponent {
 
   /** Initial state */
   state = {
-    text: ''
+    text: '',
   }
 
   /** Called after first render */

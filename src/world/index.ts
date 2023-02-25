@@ -41,7 +41,7 @@ export default class World {
 
   /** Timers to keep track of how long certain processes take. */
   private timers = {
-    render: new Timer()
+    render: new Timer(),
   }
 
   /**
@@ -201,7 +201,7 @@ export default class World {
       calls: this.renderer.info.render.calls,
       triangles: this.renderer.info.render.triangles,
       meshes: this.renderer.info.memory.geometries,
-      textures: this.renderer.info.memory.textures
+      textures: this.renderer.info.memory.textures,
     }
 
     store.dispatch(debugUpdate(debugStoreUpdate))

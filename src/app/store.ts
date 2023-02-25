@@ -5,8 +5,8 @@ import debugReducer from '@/features/debugSlice'
 // Configure the global store
 export const store = configureStore({
   reducer: {
-    debug: debugReducer
-  }
+    debug: debugReducer,
+  },
 })
 
 export type AppDispatch = typeof store.dispatch

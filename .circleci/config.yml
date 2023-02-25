@@ -1,21 +1,49 @@
 version: 2
 
 jobs:
-  build:
+
+  # Perform style checking
+  lint:
     docker:
       - image: cimg/node:16.8
 
-    working_directory: ~/repo
+    working_directory: ~/app
 
     steps:
       - checkout
 
       # Download and cache dependencies
       - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+          key: dependency-cache-v1-{{ checksum "package.json" }}
+
+      # Lint the files
+      - run:
+          name: 'Lint'
+          command: npm run lint
+
+      - save_cache:
+          key: dependency-cache-v1-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+            - ./package-lock.json
+
+      - persist_to_workspace:
+          root: ~/app
+          paths: dist
+
+  # Build the app
+  build:
+    docker:
+      - image: cimg/node:16.8
+
+    working_directory: ~/app
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          key: dependency-cache-v1-{{ checksum "package.json" }}
 
       # Install dependencies
       - run:
@@ -28,16 +56,23 @@ jobs:
           command: npm run build
 
       - save_cache:
+          key: dependency-cache-v1-{{ checksum "package.json" }}
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - ./node_modules
+            - ./package-lock.json
 
       - persist_to_workspace:
-          root: .
+          root: ~/app
           paths: dist
 
 workflows:
   version: 2
-  build:
+
+  lint-build:
     jobs:
-      - build
+      - lint:
+          name: Lint
+      - build:
+          name: Build
+          requires:
+            - Lint

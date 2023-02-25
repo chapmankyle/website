@@ -37,7 +37,7 @@ const initialState: DebugState = {
   graphicsVendor: '?',
   graphicsRenderer: '?',
   webglVersion: 'WebGL1',
-  rendererInfo: { calls: 0, triangles: 0, meshes: 0, textures: 0 }
+  rendererInfo: { calls: 0, triangles: 0, meshes: 0, textures: 0 },
 }
 
 export const debugSlice = createSlice({
@@ -46,8 +46,8 @@ export const debugSlice = createSlice({
   reducers: {
     update: (state, action: PayloadAction<DebugState>) => {
       return { ...state, ...action.payload }
-    }
-  }
+    },
+  },
 })
 
 export const { update } = debugSlice.actions
