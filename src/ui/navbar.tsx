@@ -1,4 +1,5 @@
 import { useState, FC } from 'react'
+import { motion } from 'framer-motion'
 import { HiOutlineBars3, HiOutlineCodeBracket, HiOutlineDocumentText, HiOutlineEnvelopeOpen, HiOutlineFolderOpen, HiOutlineHome, HiOutlineXMark } from 'react-icons/hi2'
 
 /** Buttons to show in the navigation menu */
@@ -11,6 +12,12 @@ const navButtons = [
 
 /** Contact button */
 const contactBtn = { id: 'contact', text: 'Contact', icon: HiOutlineEnvelopeOpen }
+
+/** Animation variants for the hamburger dropdown menu */
+const hamburgerVariants = {
+  open: { y: 0 },
+  closed: { y: -200 },
+}
 
 /**
  * Shows a navigation bar at the top of the screen.
@@ -35,10 +42,10 @@ export default function Navbar() {
 
   // Render
   return <nav>
-    <div className='bg-zinc-800 mx-auto px-2 sm:px-6 lg:px-8'>
+    <div className='relative bg-zinc-800 mx-auto px-2 sm:px-6 lg:px-8 z-10'>
       <div className='relative flex h-12 items-center justify-between'>
         <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
-          {/* Mobile menu button */}
+          {/* Mobile hamburger menu button */}
           <button type='button' onClick={() => setOpen(!isOpen)} className='inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:bg-zinc-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white' aria-controls='mobile-menu' aria-expanded={isOpen ? 'true' : 'false'}>
             <span className='sr-only'>Open main menu</span>
 
@@ -65,20 +72,21 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* Contact button */}
         <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
           <NavButton icon={contactBtn.icon} text={contactBtn.text} hideTextMobile={true} selected={selectedBtn === contactBtn.id} onClick={() => onButtonClick(contactBtn.id)} />
         </div>
       </div>
     </div>
 
-    {/* Mobile menu */}
-    <div className={`bg-zinc-800/80 ${isOpen ? 'block' : 'hidden'} sm:hidden`}>
+    {/* Mobile hamburger menu */}
+    <motion.div variants={hamburgerVariants} initial='closed' animate={isOpen ? 'open' : 'closed'} transition={{ duration: 0.4 }} className='bg-zinc-800/80 block sm:hidden'>
       <div className='space-y-1 px-2 pt-2 pb-3'>
         { navButtons.map(btn => (
           <NavButton key={btn.id} icon={btn.icon} text={btn.text} selected={selectedBtn === btn.id} onClick={() => onButtonClick(btn.id)} />
         ))}
       </div>
-    </div>
+    </motion.div>
   </nav>
 }
 
