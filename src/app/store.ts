@@ -1,11 +1,13 @@
 import { configureStore, Action, ThunkAction } from '@reduxjs/toolkit'
 
 import debugReducer from '@/features/debugSlice'
+import sectionReducer from '@/features/sectionSlice'
 
 // Configure the global store
 export const store = configureStore({
   reducer: {
     debug: debugReducer,
+    section: sectionReducer,
   },
 })
 

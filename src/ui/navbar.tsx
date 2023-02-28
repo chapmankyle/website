@@ -2,6 +2,9 @@ import { useState, FC } from 'react'
 import { motion } from 'framer-motion'
 import { HiOutlineBars3, HiOutlineCodeBracket, HiOutlineDocumentText, HiOutlineEnvelopeOpen, HiOutlineFolderOpen, HiOutlineHome, HiOutlineXMark } from 'react-icons/hi2'
 
+import { store } from '@/app/store'
+import { update as updateSection } from '@/features/sectionSlice'
+
 /** Buttons to show in the navigation menu */
 const navButtons = [
   { id: 'home', text: 'Home', icon: HiOutlineHome },
@@ -32,7 +35,9 @@ export default function Navbar() {
       return
     }
 
+    // Update selected button
     setSelectedBtn(button)
+    store.dispatch(updateSection(button))
 
     // Close mobile menu if open
     if (isOpen) {

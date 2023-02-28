@@ -30,6 +30,7 @@ export interface DebugState {
   rendererInfo?: RendererInfo;
 }
 
+/** Initial state of the slice */
 const initialState: DebugState = {
   fps: 1,
   renderDuration: '0ms',
@@ -40,7 +41,8 @@ const initialState: DebugState = {
   rendererInfo: { calls: 0, triangles: 0, meshes: 0, textures: 0 },
 }
 
-export const debugSlice = createSlice({
+/** Slice that updates debug information */
+const debugSlice = createSlice({
   name: 'debug',
   initialState,
   reducers: {
