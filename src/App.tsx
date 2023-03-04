@@ -1,4 +1,5 @@
 import DebugInfo from '@/features/debugInfo'
+import Footer from '@/ui/footer'
 import Navbar from '@/ui/navbar'
 import World from '@/world'
 
@@ -18,9 +19,6 @@ export default function App(): JSX.Element {
   return <>
     <Navbar />
     <DebugInfo />
-
-    <div className='flex absolute bottom-0 w-full h-8 items-center px-3 text-white'>
-      Copyright &copy; Kyle Chapman 2023
-    </div>
+    <Footer />
   </>
 }

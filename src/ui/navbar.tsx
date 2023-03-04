@@ -47,11 +47,11 @@ export default function Navbar() {
 
   // Render
   return <nav>
-    <div className='relative bg-zinc-800 mx-auto px-2 sm:px-6 lg:px-8 z-10'>
+    <div className='relative bg-primary mx-auto px-2 sm:px-6 lg:px-8 z-10'>
       <div className='relative flex h-12 items-center justify-between'>
         <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
           {/* Mobile hamburger menu button */}
-          <button type='button' onClick={() => setOpen(!isOpen)} className='inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:bg-zinc-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white' aria-controls='mobile-menu' aria-expanded={isOpen ? 'true' : 'false'}>
+          <button type='button' onClick={() => setOpen(!isOpen)} className='inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:text-secondary focus:outline-none focus:ring-0' aria-controls='mobile-menu' aria-expanded={isOpen ? 'true' : 'false'}>
             <span className='sr-only'>Open main menu</span>
 
             {/* Icon when menu is closed */}
@@ -85,7 +85,7 @@ export default function Navbar() {
     </div>
 
     {/* Mobile hamburger menu */}
-    <motion.div variants={hamburgerVariants} initial='closed' animate={isOpen ? 'open' : 'closed'} transition={{ duration: 0.4 }} className='bg-zinc-800/80 block sm:hidden'>
+    <motion.div variants={hamburgerVariants} initial='closed' animate={isOpen ? 'open' : 'closed'} transition={{ duration: 0.4 }} className='bg-primary/80 block sm:hidden'>
       <div className='space-y-1 px-2 pt-2 pb-3'>
         { navButtons.map(btn => (
           <NavButton key={btn.id} icon={btn.icon} text={btn.text} selected={selectedBtn === btn.id} onClick={() => onButtonClick(btn.id)} />
@@ -114,11 +114,11 @@ interface NavButtonProps {
  * @param props Navigation button properties.
  */
 const NavButton: FC<NavButtonProps> = (props) => {
-  const selectedStyle = props.selected ? 'text-white sm:border-white' : ''
+  const selectedStyle = props.selected ? 'text-secondary sm:border-secondary' : 'text-gray-300'
   const hiddenOnMobile = !!props.hideTextMobile
 
   // Render
-  return <button type='button' onClick={() => props.onClick()} className={`flex items-center w-full sm:w-auto px-3 py-2 text-gray-300 border-b border-transparent ${selectedStyle} hover:text-white sm:hover:border-white rounded-md sm:rounded-none ${props.selected ? 'bg-zinc-600' : 'bg-transparent'} sm:bg-transparent text-base transition-all duration-300 cursor-pointer`}>
+  return <button type='button' onClick={() => props.onClick()} className={`flex items-center w-full sm:w-auto px-3 py-2 border-b border-transparent ${selectedStyle} hover:text-secondary sm:hover:border-secondary rounded-md sm:rounded-none sm:bg-transparent text-base transition-all duration-300 cursor-pointer`}>
     <props.icon className={`${hiddenOnMobile ? 'mr-0' : 'mr-2'} sm:mr-2`} />
     <span className={`${hiddenOnMobile ? 'hidden' : 'block'} sm:block`}>
       { props.text }
