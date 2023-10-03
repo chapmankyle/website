@@ -67,4 +67,4 @@ serve -s dist -l 4000
 The production version is now accessible at http://localhost:4000.
 
 # Screenshot :camera:
-![screenshot](https://user-images.githubusercontent.com/43512442/219450960-62a7091a-48aa-4f51-995a-0b851b07947c.png)
+![screenshot](./screenshot.png)
