@@ -2,6 +2,7 @@
 
 <p align="center">
   <img src="https://circleci.com/gh/chapmankyle/website/tree/master.svg?style=svg" alt="Build Status"></img>
+  <img src="https://api.netlify.com/api/v1/badges/29cade3f-cd53-4389-88bf-1e97bfd4a5ca/deploy-status" alt="Deploy status"></img>
   <img src="https://img.shields.io/github/license/chapmankyle/website.svg?" alt="license: GPL-3.0"></img>
   <img src="https://img.shields.io/github/v/release/chapmankyle/website.svg?" alt="Release"></img>
 </p>
