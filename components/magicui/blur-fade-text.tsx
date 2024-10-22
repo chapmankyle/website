@@ -6,6 +6,7 @@ import { useMemo } from 'react'
 
 interface BlurFadeTextProps {
   text: string
+  icon?: JSX.Element
   className?: string
   variant?: {
     hidden: { y: number }
@@ -18,6 +19,7 @@ interface BlurFadeTextProps {
   animateByCharacter?: boolean
 }
 const BlurFadeText = ({
+  icon,
   text,
   className,
   variant,
@@ -75,6 +77,7 @@ const BlurFadeText = ({
           }}
           className={cn('inline-block', className)}
         >
+          {(icon != null) ? <span className='mr-2'>{icon}</span> : null}
           {text}
         </motion.span>
       </AnimatePresence>

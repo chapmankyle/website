@@ -1,5 +1,5 @@
+import { Roboto } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
-import localFont from 'next/font/local'
 
 import './globals.css'
 
@@ -8,10 +8,12 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { STATIC_DATA } from '@/data'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
+const roboto = Roboto({
+  weight: ['300', '400', '700'],
+  style: 'normal',
+  subsets: ['latin'],
   variable: '--custom-font-sans',
-  weight: '100 900'
+  display: 'swap'
 })
 
 /** Metadata information */
@@ -67,7 +69,7 @@ export default function RootLayout ({
     <html lang='en' suppressHydrationWarning>
       <body className={cn(
         'font-sans antialiased min-h-screen bg-background max-w-2xl mx-auto py-12 sm:py-24 px-6',
-        geistSans.variable
+        roboto.variable
       )}
       >
         <ThemeProvider>

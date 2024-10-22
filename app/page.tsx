@@ -1,14 +1,24 @@
 import Markdown from 'react-markdown'
+import { LanguageSquareIcon, Location04Icon } from 'hugeicons-react'
 
 import BlurFade from '@/components/magicui/blur-fade'
 import BlurFadeText from '@/components/magicui/blur-fade-text'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { STATIC_DATA } from '@/data'
+import { fetchAPIData, STATIC_DATA } from '@/data'
 
+// Delay before blurring elements in
 const BLUR_FADE_DELAY = 0.04
 
-export default function Page (): JSX.Element {
+// Invalidate cache at most once every x seconds
+export const revalidate = 900 // 15 minutes
+
+export default async function Page (): Promise<JSX.Element> {
+  const data = await fetchAPIData()
+  const metadata = data.metadata
+  const headingSummary = [metadata.title, metadata.summary].join('. ') + '.'
+
+  // Render UI
   return (
     <main className='flex flex-col min-h-[100dvh] space-y-10'>
       <section id='hero'>
@@ -17,20 +27,34 @@ export default function Page (): JSX.Element {
             <div className='flex-col flex flex-1 space-y-1.5'>
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
-                className='text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none'
+                className='text-3xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none'
                 yOffset={8}
-                text={`hey, i'm ${STATIC_DATA.name.split(' ')[0]} 👋`}
+                text={`hey, i'm ${metadata.name.split(' ')[0].toLowerCase()} 👋`}
               />
               <BlurFadeText
-                className='max-w-[600px] md:text-xl'
                 delay={BLUR_FADE_DELAY}
-                text={STATIC_DATA.description}
+                className='max-w-[420px] md:text-xl'
+                text={headingSummary}
               />
+              <div className='flex items-center gap-7'>
+                <BlurFadeText
+                  delay={BLUR_FADE_DELAY}
+                  className='flex items-center text-sm text-muted-foreground mt-1'
+                  icon={<Location04Icon className='h-4 w-4' />}
+                  text={metadata.location}
+                />
+                <BlurFadeText
+                  delay={BLUR_FADE_DELAY}
+                  className='flex items-center text-sm text-muted-foreground mt-1'
+                  icon={<LanguageSquareIcon className='h-4 w-4' />}
+                  text={metadata.languages.join(', ')}
+                />
+              </div>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className='size-28 border'>
-                <AvatarImage alt={STATIC_DATA.name} src={STATIC_DATA.avatarUrl} />
-                <AvatarFallback>{STATIC_DATA.initials}</AvatarFallback>
+                <AvatarImage alt={metadata.name} src={STATIC_DATA.avatarUrl} />
+                <AvatarFallback>{metadata.initials}</AvatarFallback>
               </Avatar>
             </BlurFade>
           </div>
@@ -41,7 +65,7 @@ export default function Page (): JSX.Element {
           <h2 className='text-xl font-bold'>About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className='prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert'>
+          <Markdown className='prose max-w-full text-pretty font-sans text-base text-muted-foreground dark:prose-invert'>
             {STATIC_DATA.description}
           </Markdown>
         </BlurFade>
