@@ -16,6 +16,9 @@ const config: Config = {
       }
     },
     extend: {
+      fontFamily: {
+        sans: 'var(--custom-font-sans)'
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
