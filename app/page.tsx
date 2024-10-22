@@ -1,4 +1,5 @@
 import About from '@/components/sections/about'
+import Experience from '@/components/sections/experience'
 import Header from '@/components/sections/header'
 
 import { fetchAPIData } from '@/data'
@@ -15,6 +16,7 @@ export default async function Page (): Promise<JSX.Element> {
     <main className='flex flex-col min-h-[100dvh] space-y-10'>
       <Header data={data} blurDelay={BLUR_FADE_DELAY} />
       <About data={data} blurDelay={BLUR_FADE_DELAY} />
+      <Experience data={data} blurDelay={BLUR_FADE_DELAY} />
     </main>
   )
 }
