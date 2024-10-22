@@ -10,14 +10,16 @@ export interface Metadata {
 
 export interface Experience {
   id: number
-  dateAsString?: string
   startDate: string
   endDate: string
   title: string
-  type: string
+  type: 'Full-time' | 'Part-time' | 'Internship'
   company: string
+  imagePath: string
   description: string
   technologies: string[]
+  dateAsString?: string
+  duration?: string
 }
 
 export interface APIData {
