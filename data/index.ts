@@ -1,7 +1,7 @@
 import { APIData } from '@/lib/types'
 
 /** Base URL to use for the API endpoint */
-const BASE_URL = process.env.API_ROOT_URL || ''
+const BASE_URL = process.env.API_ROOT_URL ?? ''
 
 /** API endpoint URL */
 const API_URL = `${BASE_URL}/api/v2`
