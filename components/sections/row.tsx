@@ -11,7 +11,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardHeader } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 
-import type { ILocation } from '@/lib/types'
+import type { IDuration, ILocation } from '@/lib/types'
 
 interface RowProps {
   logoUrl: string
@@ -22,7 +22,7 @@ interface RowProps {
   tech?: readonly string[]
   period: string
   description?: string
-  duration?: string
+  duration?: IDuration
   location?: ILocation
   roleType?: string
 }
@@ -41,7 +41,15 @@ export const Row = ({
   roleType
 }: RowProps): JSX.Element => {
   const [isExpanded, setIsExpanded] = React.useState(false)
-  const bodySubtitle = [location?.name, duration].filter(s => s != null).join(' | ')
+  const durationStr = [
+    duration?.years != null && duration.years > 0
+      ? `${duration.years} yr${duration.years > 1 ? 's' : ''}`
+      : null,
+    duration?.months != null && duration.months > 0
+      ? `${duration.months} mo${duration.months > 1 ? 's' : ''}`
+      : null
+  ].filter(s => s != null).join(' ')
+  const bodySubtitle = [location?.name, durationStr].filter(s => s != null).join(' | ')
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
     if (description == null) {
@@ -68,7 +76,7 @@ export const Row = ({
         <div className='flex-grow ml-4 items-center flex-col group'>
           <CardHeader>
             <div className='flex items-center justify-between gap-x-2 text-base'>
-              <h3 className='inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm'>
+              <h3 className='inline-flex items-center justify-center font-semibold leading-none text-sm'>
                 {title}
                 <ChevronRightIcon
                   className={cn(

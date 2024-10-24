@@ -13,6 +13,11 @@ export interface ILocation {
   name: string
 }
 
+export interface IDuration {
+  years: number
+  months: number
+}
+
 export interface IExperience {
   id: number
   startDate: string
@@ -25,7 +30,7 @@ export interface IExperience {
   technologies: string[]
   location: ILocation
   dateAsString?: string
-  duration?: string
+  duration?: IDuration
 }
 
 export interface IEducation {

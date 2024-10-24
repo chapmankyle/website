@@ -16,7 +16,10 @@ export const FALLBACK_DATA: IAPIData = {
       dateAsString: '2024-10-01',
       startDate: 'Oct 2024',
       endDate: 'present',
-      duration: '1 mo',
+      duration: {
+        years: 0,
+        months: 1
+      },
       title: 'Lead Full Stack Engineer',
       type: 'Full-time',
       company: 'Zilverline B.V.',
@@ -33,7 +36,10 @@ export const FALLBACK_DATA: IAPIData = {
       id: 6,
       startDate: 'Apr 2024',
       endDate: 'Sep 2024',
-      duration: '6 mos',
+      duration: {
+        years: 0,
+        months: 6
+      },
       title: 'Full Stack Engineer',
       type: 'Full-time',
       company: 'Zilverline B.V.',
@@ -49,7 +55,10 @@ export const FALLBACK_DATA: IAPIData = {
       id: 5,
       startDate: 'Sep 2021',
       endDate: 'Mar 2024',
-      duration: '2 yrs 7 mos',
+      duration: {
+        years: 2,
+        months: 7
+      },
       title: 'Lead Full Stack Engineer',
       type: 'Full-time',
       company: 'ydangle apps (Pty) Ltd.',
@@ -66,7 +75,10 @@ export const FALLBACK_DATA: IAPIData = {
       id: 4,
       startDate: 'Feb 2021',
       endDate: 'Aug 2021',
-      duration: '7 mos',
+      duration: {
+        years: 0,
+        months: 7
+      },
       title: 'Full Stack Engineer',
       type: 'Full-time',
       company: 'ydangle apps (Pty) Ltd.',
@@ -83,7 +95,10 @@ export const FALLBACK_DATA: IAPIData = {
       id: 3,
       startDate: 'Feb 2020',
       endDate: 'Nov 2020',
-      duration: '10 mos',
+      duration: {
+        years: 0,
+        months: 10
+      },
       title: 'Computer Science Tutor',
       type: 'Part-time',
       company: 'Stellenbosch University',
@@ -99,7 +114,10 @@ export const FALLBACK_DATA: IAPIData = {
       id: 2,
       startDate: 'Dec 2019',
       endDate: 'Jan 2020',
-      duration: '2 mos',
+      duration: {
+        years: 0,
+        months: 2
+      },
       title: 'Frontend Engineer',
       type: 'Internship',
       company: 'VASTech (Pty) Ltd.',
@@ -116,7 +134,10 @@ export const FALLBACK_DATA: IAPIData = {
       id: 1,
       startDate: 'Jun 2019',
       endDate: 'Jul 2019',
-      duration: '2 mos',
+      duration: {
+        years: 0,
+        months: 2
+      },
       title: 'Backend Engineer',
       type: 'Internship',
       company: 'VASTech (Pty) Ltd.',
