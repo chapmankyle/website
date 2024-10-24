@@ -23,11 +23,10 @@ export default function Education ({
               key={edu.id}
               logoUrl={BASE_URL + edu.imagePath}
               altText={edu.school}
-              title={edu.school}
-              subtitle={edu.title}
+              title={edu.title}
+              subtitle={edu.school}
               period={`${edu.startYear} - ${edu.endYear}`}
               description={edu.description}
-              location={edu.location}
             />
           </BlurFade>
         ))}

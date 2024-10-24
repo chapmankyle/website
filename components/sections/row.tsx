@@ -36,9 +36,12 @@ export const Row = ({
   tech,
   period,
   description,
+  duration,
+  location,
   roleType
 }: RowProps): JSX.Element => {
   const [isExpanded, setIsExpanded] = React.useState(false)
+  const bodySubtitle = [location?.name, duration].filter(s => s != null).join(' | ')
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
     if (description == null) {
@@ -92,16 +95,24 @@ export const Row = ({
                 initial={{ opacity: 0, height: 0 }}
                 animate={{
                   opacity: isExpanded ? 1 : 0,
-
                   height: isExpanded ? 'auto' : 0
                 }}
                 transition={{
                   duration: 0.7,
                   ease: [0.16, 1, 0.3, 1]
                 }}
-                className='mt-2 text-xs sm:text-sm'
+                className='mb-1 text-xs sm:text-sm'
               >
-                {description}
+                {bodySubtitle != null && bodySubtitle.length > 0
+                  ? (
+                    <span className='flex items-center mt-[1px] mb-1 text-xs text-muted-foreground'>
+                      {bodySubtitle}
+                    </span>
+                    )
+                  : null}
+                <span className='mt-3'>
+                  {description}
+                </span>
               </motion.div>
               )
             : null}

@@ -23,11 +23,13 @@ export default function Experience ({
               key={exp.id}
               logoUrl={BASE_URL + exp.imagePath}
               altText={exp.company}
-              title={exp.company}
-              subtitle={exp.title}
+              title={exp.title}
+              subtitle={exp.company}
               tech={exp.technologies}
               period={`${exp.startDate} - ${exp.endDate}`}
               description={exp.description}
+              duration={exp.duration}
+              location={exp.location}
               roleType={exp.type}
             />
           </BlurFade>
