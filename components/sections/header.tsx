@@ -12,6 +12,7 @@ export default function Header ({
 }: ISectionProps): JSX.Element {
   const name = data.metadata.name.split(' ')[0].toLowerCase()
   const summary = [data.metadata.title, data.metadata.summary].join('. ') + '.'
+  const locationCountry = data.metadata.location.split(', ')[1]
 
   return (
     <section id='hero'>
@@ -29,20 +30,6 @@ export default function Header ({
               className='max-w-[420px] md:text-xl'
               text={summary}
             />
-            <div className='flex items-center gap-7'>
-              <BlurFadeText
-                delay={blurDelay}
-                className='flex items-center text-sm text-muted-foreground mt-1'
-                icon={<Location01Icon className='h-4 w-4' />}
-                text={data.metadata.location}
-              />
-              <BlurFadeText
-                delay={blurDelay}
-                className='flex items-center text-sm text-muted-foreground mt-1'
-                icon={<LanguageSquareIcon className='h-4 w-4' />}
-                text={data.metadata.languages.join(', ')}
-              />
-            </div>
           </div>
           <BlurFade delay={blurDelay}>
             <Avatar className='size-28 border'>
@@ -51,6 +38,26 @@ export default function Header ({
             </Avatar>
           </BlurFade>
         </div>
+      </div>
+      <div className='flex items-center mt-1 gap-5 sm:gap-7'>
+        <BlurFadeText
+          delay={blurDelay}
+          className='flex sm:hidden items-center text-xs sm:text-sm text-muted-foreground mt-1'
+          icon={<Location01Icon className='h-3 w-3 sm:h-4 sm:w-4' />}
+          text={locationCountry}
+        />
+        <BlurFadeText
+          delay={blurDelay}
+          className='hidden sm:flex items-center text-xs sm:text-sm text-muted-foreground mt-1'
+          icon={<Location01Icon className='h-3 w-3 sm:h-4 sm:w-4' />}
+          text={data.metadata.location}
+        />
+        <BlurFadeText
+          delay={blurDelay}
+          className='flex items-center text-xs sm:text-sm text-muted-foreground mt-1'
+          icon={<LanguageSquareIcon className='h-3 w-3 sm:h-4 sm:w-4' />}
+          text={data.metadata.languages.join(', ')}
+        />
       </div>
     </section>
   )
