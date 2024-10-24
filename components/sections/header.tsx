@@ -1,4 +1,4 @@
-import { LanguageSquareIcon, Location04Icon } from 'hugeicons-react'
+import { LanguageSquareIcon, Location01Icon } from 'hugeicons-react'
 
 import BlurFade from '@/components/magicui/blur-fade'
 import BlurFadeText from '@/components/magicui/blur-fade-text'
@@ -33,7 +33,7 @@ export default function Header ({
               <BlurFadeText
                 delay={blurDelay}
                 className='flex items-center text-sm text-muted-foreground mt-1'
-                icon={<Location04Icon className='h-4 w-4' />}
+                icon={<Location01Icon className='h-4 w-4' />}
                 text={data.metadata.location}
               />
               <BlurFadeText
