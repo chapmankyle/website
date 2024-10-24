@@ -28,6 +28,7 @@ export default function Experience ({
               tech={exp.technologies}
               period={`${exp.startDate} - ${exp.endDate}`}
               description={exp.description}
+              roleType={exp.type}
             />
           </BlurFade>
         ))}

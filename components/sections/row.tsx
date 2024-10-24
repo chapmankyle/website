@@ -24,6 +24,7 @@ interface RowProps {
   description?: string
   duration?: string
   location?: ILocation
+  roleType?: string
 }
 
 export const Row = ({
@@ -34,7 +35,8 @@ export const Row = ({
   href,
   tech,
   period,
-  description
+  description,
+  roleType
 }: RowProps): JSX.Element => {
   const [isExpanded, setIsExpanded] = React.useState(false)
 
@@ -79,7 +81,7 @@ export const Row = ({
             {subtitle != null
               ? (
                 <div className='font-sans flex-1 text-xs'>
-                  {subtitle}
+                  {subtitle} {roleType != null ? `| ${roleType}` : null}
                 </div>
                 )
               : null}
