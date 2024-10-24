@@ -11,6 +11,8 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardHeader } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 
+import type { ILocation } from '@/lib/types'
+
 interface ExperienceRowProps {
   logoUrl: string
   altText: string
@@ -21,6 +23,7 @@ interface ExperienceRowProps {
   period: string
   description?: string
   duration?: string
+  location?: ILocation
 }
 
 export const ExperienceRow = ({
@@ -31,8 +34,7 @@ export const ExperienceRow = ({
   href,
   tech,
   period,
-  description,
-  duration
+  description
 }: ExperienceRowProps): JSX.Element => {
   const [isExpanded, setIsExpanded] = React.useState(false)
 

@@ -2,11 +2,12 @@ import BlurFade from '@/components/magicui/blur-fade'
 
 import { ExperienceRow } from '@/components/sections/experience-row'
 import { BASE_URL } from '@/data'
-import { SectionProps } from '@/lib/types'
+
+import type { ISectionProps } from '@/lib/types'
 
 export default function Experience ({
   data, blurDelay
-}: SectionProps): JSX.Element {
+}: ISectionProps): JSX.Element {
   return (
     <section id='experience'>
       <div className='flex min-h-0 flex-col gap-y-3'>
@@ -19,14 +20,13 @@ export default function Experience ({
             delay={blurDelay * 6 + idx * 0.05}
           >
             <ExperienceRow
-              key={exp.company}
+              key={exp.id}
               logoUrl={BASE_URL + exp.imagePath}
               altText={exp.company}
               title={exp.company}
               subtitle={exp.title}
               tech={exp.technologies}
               period={`${exp.startDate} - ${exp.endDate}`}
-              duration={exp.duration}
               description={exp.description}
             />
           </BlurFade>

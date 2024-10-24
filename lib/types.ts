@@ -1,4 +1,4 @@
-export interface Metadata {
+export interface IMetadata {
   name: string
   initials: string
   url: string
@@ -8,7 +8,12 @@ export interface Metadata {
   languages: string[]
 }
 
-export interface Experience {
+export interface ILocation {
+  flag: string
+  name: string
+}
+
+export interface IExperience {
   id: number
   startDate: string
   endDate: string
@@ -18,16 +23,29 @@ export interface Experience {
   imagePath: string
   description: string
   technologies: string[]
+  location: ILocation
   dateAsString?: string
   duration?: string
 }
 
-export interface APIData {
-  metadata: Metadata
-  experience: Experience[]
+export interface IEducation {
+  id: number
+  startYear: string
+  endYear: string
+  title: string
+  school: string
+  imagePath: string
+  description: string
+  location: ILocation
 }
 
-export interface SectionProps {
-  data: APIData
+export interface IAPIData {
+  metadata: IMetadata
+  experience: IExperience[]
+  education: IEducation[]
+}
+
+export interface ISectionProps {
+  data: IAPIData
   blurDelay: number
 }

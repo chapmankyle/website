@@ -1,4 +1,4 @@
-import { APIData } from '@/lib/types'
+import type { IAPIData } from '@/lib/types'
 
 /** Base URL to use for the API endpoint */
 export const BASE_URL = process.env.API_ROOT_URL ?? ''
@@ -6,8 +6,8 @@ export const BASE_URL = process.env.API_ROOT_URL ?? ''
 /** API endpoint URL */
 export const API_URL = `${BASE_URL}/api/v2`
 
-export const fetchAPIData = async (): Promise<APIData> => {
-  const response = await fetch(`${API_URL}/all`)
+export const fetchAPIData = async (): Promise<IAPIData> => {
+  const response = await fetch(`${API_URL}/all`, { method: 'GET' })
   return (await response.json()).data
 }
 

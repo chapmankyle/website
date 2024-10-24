@@ -4,11 +4,12 @@ import BlurFade from '@/components/magicui/blur-fade'
 import BlurFadeText from '@/components/magicui/blur-fade-text'
 
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
-import { SectionProps } from '@/lib/types'
+
+import type { ISectionProps } from '@/lib/types'
 
 export default function Header ({
   data, blurDelay
-}: SectionProps): JSX.Element {
+}: ISectionProps): JSX.Element {
   const name = data.metadata.name.split(' ')[0].toLowerCase()
   const summary = [data.metadata.title, data.metadata.summary].join('. ') + '.'
 

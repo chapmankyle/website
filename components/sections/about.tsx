@@ -1,11 +1,11 @@
-import { SectionProps } from '@/lib/types'
+import type { ISectionProps } from '@/lib/types'
 
 import BlurFade from '@/components/magicui/blur-fade'
 import Markdown from 'react-markdown'
 
 export default function About ({
   data, blurDelay
-}: SectionProps): JSX.Element {
+}: ISectionProps): JSX.Element {
   return (
     <section id='about'>
       <BlurFade delay={blurDelay * 3}>
