@@ -25,7 +25,6 @@ export default function Experience ({
               altText={exp.company}
               title={exp.title}
               subtitle={exp.company}
-              tech={exp.technologies}
               period={`${exp.startDate} - ${exp.endDate}`}
               description={exp.description}
               duration={exp.duration}
