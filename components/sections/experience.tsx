@@ -1,6 +1,6 @@
 import BlurFade from '@/components/magicui/blur-fade'
 
-import { ExperienceRow } from '@/components/sections/experience-row'
+import { Row } from '@/components/sections/row'
 import { BASE_URL } from '@/data'
 
 import type { ISectionProps } from '@/lib/types'
@@ -19,7 +19,7 @@ export default function Experience ({
             key={exp.id}
             delay={blurDelay * 6 + idx * 0.05}
           >
-            <ExperienceRow
+            <Row
               key={exp.id}
               logoUrl={BASE_URL + exp.imagePath}
               altText={exp.company}

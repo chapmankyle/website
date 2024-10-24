@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils'
 
 import type { ILocation } from '@/lib/types'
 
-interface ExperienceRowProps {
+interface RowProps {
   logoUrl: string
   altText: string
   title: string
@@ -26,7 +26,7 @@ interface ExperienceRowProps {
   location?: ILocation
 }
 
-export const ExperienceRow = ({
+export const Row = ({
   logoUrl,
   altText,
   title,
@@ -35,7 +35,7 @@ export const ExperienceRow = ({
   tech,
   period,
   description
-}: ExperienceRowProps): JSX.Element => {
+}: RowProps): JSX.Element => {
   const [isExpanded, setIsExpanded] = React.useState(false)
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
