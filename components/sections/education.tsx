@@ -23,8 +23,8 @@ export default function Education ({
               key={edu.id}
               logoUrl={BASE_URL + edu.imagePath}
               altText={edu.school}
-              title={edu.title}
-              subtitle={edu.school}
+              title={edu.school}
+              subtitle={edu.title}
               period={`${edu.startYear} - ${edu.endYear}`}
               description={edu.description}
             />
