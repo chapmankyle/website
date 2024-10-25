@@ -30,7 +30,8 @@ export const FALLBACK_DATA: IAPIData = {
       location: {
         flag: '🇳🇱',
         name: 'Amsterdam, Netherlands'
-      }
+      },
+      previous: 6
     },
     {
       id: 6,
@@ -69,7 +70,8 @@ export const FALLBACK_DATA: IAPIData = {
       location: {
         flag: '🇿🇦',
         name: 'Cape Town, South Africa'
-      }
+      },
+      previous: 4
     },
     {
       id: 4,
@@ -103,7 +105,7 @@ export const FALLBACK_DATA: IAPIData = {
       type: 'Part-time',
       company: 'Stellenbosch University',
       imagePath: '/static/stellenbosch-logo.jpg',
-      description: 'I was a tutor for second-year university students, helping them understand the course work and creating mock exams for them to test their skills. All of my students passed their final exams with ease.',
+      description: 'I was a tutor for second-year university students. I helped them understand the course work and created mock exams for them to test their skills. All of my students passed their final exams with ease.',
       technologies: ['C', 'Assembly'],
       location: {
         flag: '🇿🇦',

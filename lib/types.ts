@@ -31,6 +31,7 @@ export interface IExperience {
   location: ILocation
   dateAsString?: string
   duration?: IDuration
+  previous?: number // Identifier for previous experience at same company
 }
 
 export interface IEducation {
