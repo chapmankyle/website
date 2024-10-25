@@ -8,6 +8,7 @@ export const FALLBACK_DATA: IAPIData = {
     location: 'Amsterdam, Netherlands',
     title: 'Full Stack Engineer',
     summary: 'I love learning new things and working on interesting projects',
+    about: "I started out by learning **JavaScript** to prepare for programming classes in school, only to realize the teacher meant **Java**. Ever since then, I've learnt to read more carefully. Now I have over 3 years of professional experience and still have the same drive and passion that I've had since that day.",
     languages: ['English (Native)', 'Nederlands (A2)']
   },
   experience: [

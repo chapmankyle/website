@@ -5,6 +5,7 @@ export interface IMetadata {
   location: string
   title: string
   summary: string
+  about: string
   languages: string[]
 }
 
