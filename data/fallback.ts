@@ -4,7 +4,7 @@ export const FALLBACK_DATA: IAPIData = {
   metadata: {
     name: 'Kyle Chapman',
     initials: 'KC',
-    url: 'https://kylechapman.netlify.app',
+    url: 'https://kylechapman.dev',
     location: 'Amsterdam, Netherlands',
     title: 'Full Stack Engineer',
     summary: 'I love learning new things and working on interesting projects',

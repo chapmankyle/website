@@ -1,4 +1,4 @@
-import type { IAPIData } from '@/lib/types'
+import type { IAPIData, IEducation, IExperience, IMetadata, IProject } from '@/lib/types'
 
 /** Base URL to use for the API endpoint */
 export const BASE_URL = process.env.API_ROOT_URL ?? ''
@@ -6,15 +6,16 @@ export const BASE_URL = process.env.API_ROOT_URL ?? ''
 /** API endpoint URL */
 export const API_URL = `${BASE_URL}/api/v2`
 
-export const fetchAPIData = async (): Promise<IAPIData> => {
-  const response = await fetch(`${API_URL}/all`, { method: 'GET' })
-  return (await response.json()).data
-}
+type IdParam = "all" | "metadata" | "experience" | "education" | "projects"
 
-export const STATIC_DATA = {
-  name: 'Kyle Chapman',
-  initials: 'KC',
-  url: 'https://kylechapman.netlify.app',
-  description: 'Full Stack Software Engineer. I love working on interesting projects.',
-  avatarUrl: '/me.jpg'
+const validIds: IdParam[] = ["all", "metadata", "experience", "education", "projects"]
+
+export const fetchAPIData = async (id?: IdParam): Promise<IAPIData | IMetadata | IExperience | IEducation | IProject> => {
+  let route = 'all'
+  if (id != null && validIds.includes(id)) {
+    route = id
+  }
+
+  const response = await fetch(`${API_URL}/${route}`, { method: 'GET' })
+  return (await response.json()).data
 }

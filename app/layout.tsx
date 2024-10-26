@@ -4,9 +4,11 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 import { cn } from '@/lib/utils'
+import { fetchAPIData } from '@/data'
 import { ThemeProvider } from '@/components/theme-provider'
 import { TooltipProvider } from '@/components/ui/tooltip'
-import { STATIC_DATA } from '@/data'
+
+import type { IMetadata } from '@/lib/types'
 
 const roboto = Roboto({
   weight: ['300', '400', '700'],
@@ -20,39 +22,44 @@ const roboto = Roboto({
 export const runtime = 'edge'
 
 /** Metadata information */
-export const metadata: Metadata = {
-  metadataBase: new URL(STATIC_DATA.url),
-  title: {
-    default: STATIC_DATA.name,
-    template: `%s · ${STATIC_DATA.name}`
-  },
-  description: STATIC_DATA.description,
-  openGraph: {
-    title: `${STATIC_DATA.name}`,
-    description: STATIC_DATA.description,
-    url: STATIC_DATA.url,
-    siteName: `${STATIC_DATA.name}`,
-    locale: 'en_US',
-    type: 'website'
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+export async function generateMetadata (): Promise<Metadata> {
+  const metadata = await fetchAPIData('metadata') as IMetadata
+  const description = [metadata.title, metadata.summary].join('. ') + '.'
+
+  return {
+    metadataBase: new URL(metadata.url),
+    title: {
+      default: metadata.name,
+      template: `%s · ${metadata.name}`
+    },
+    description,
+    openGraph: {
+      title: metadata.name,
+      description,
+      url: metadata.url,
+      siteName: metadata.name,
+      locale: 'en_US',
+      type: 'website'
+    },
+    robots: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1
+      }
+    },
+    twitter: {
+      title: `${metadata.name}`,
+      card: 'summary_large_image'
+    },
+    verification: {
+      google: '',
+      yandex: ''
     }
-  },
-  twitter: {
-    title: `${STATIC_DATA.name}`,
-    card: 'summary_large_image'
-  },
-  verification: {
-    google: '',
-    yandex: ''
   }
 }
 
@@ -60,7 +67,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#000000'
+  themeColor: '#FFFFFF'
 }
 
 export default function RootLayout ({
