@@ -8,8 +8,8 @@ export const FALLBACK_DATA: IAPIData = {
     location: 'Amsterdam, Netherlands',
     title: 'Full Stack Engineer',
     summary: 'I love learning new things and working on interesting projects',
-    about: "I started out by learning **JavaScript** to prepare for programming classes in school, only to realize the teacher meant **Java**. Ever since then, I've learnt to read more carefully. Now I have over 3 years of professional experience and still have the same drive and passion that I've had since that day.",
-    languages: ['English (Native)', 'Nederlands (A2)']
+    about: "I started learning JavaScript to prepare for IT classes in school, only to realize that we were actually getting taught Java. Ever since then, I've learnt to read more carefully. Now I have more than 3 years of professional experience and still have the same passion to learn that I've had since that day.",
+    languages: ['React', 'TypeScript', 'Ruby on Rails', 'Python', 'Docker']
   },
   experience: [
     {
@@ -67,7 +67,7 @@ export const FALLBACK_DATA: IAPIData = {
       imagePath: '/static/ydangle-logo.jpg',
       description:
         'I was part of a team that was developing a 3D, social website that allowed users to interact with one another in a shared environment. Environments could be created by users and were fully customizable, from the skybox to the audio you heard when walking up to something, which allowed for truly unique experiences that could not be found elsewhere. We used our own implementation of spatial audio that played sounds relative to where you were in the environment, making it feel more like reality.<br /><br />Our main focus was to make it easy for users to attend events and social gatherings from the comfort of their own home, through our 3D website. The platform was designed to host thousands of concurrent users in a single environment at any given moment.<br /><br />Some of my contributions were to solely implement a new chat system (with features such as reactions, threads, groups etc.), rewrite the logic for our editor tools (allowing users more control over how they wanted their environment to look and feel), add multiple third-party integrations (Slack, Teams, Sketchfab, etc.) and update the UX and UI to ensure a smooth and visually-appealing experience.',
-      technologies: ['React', 'JavaScript', 'Firebase', 'three.js'],
+      technologies: ['React', 'TypeScript', 'Firebase', 'three.js'],
       location: {
         flag: '🇿🇦',
         name: 'Cape Town, South Africa'
@@ -180,6 +180,38 @@ export const FALLBACK_DATA: IAPIData = {
         flag: '🇿🇦',
         name: 'Stellenbosch, South Africa'
       }
+    }
+  ],
+  projects: [
+    {
+      id: 4,
+      title: 'Personal Website',
+      github: 'https://github.com/chapmankyle/website',
+      languages: ['Next.js', 'Typescript', 'Tailwind', 'Shadcn UI', 'Netlify'],
+      description: "Developed to complement my CV, as well as to showcase my skills and experience. Also it's nice to be able to say, \"yeah I have a website\". Previously, it was written in Vue, but I wanted to learn Next.js so I rewrote it.",
+      isWebsite: true
+    },
+    {
+      id: 3,
+      title: 'REST API for Personal Website',
+      github: 'https://github.com/chapmankyle/website-api',
+      languages: ['TypeScript', 'Hono', 'Bun', 'Cloudflare Workers'],
+      description: 'Developed to fetch data for my personal website, instead of having to redeploy the website every time I want to change something. Hosted as a Cloudflare Worker, so that was pretty cool to learn about.',
+      isWebsite: true
+    },
+    {
+      id: 2,
+      title: 'smath',
+      github: 'https://github.com/chapmankyle/smath',
+      languages: ['C++'],
+      description: 'Developed a header-only C++ math library, similar to [GLM](https://github.com/g-truc/glm), written in C++17 that uses no external dependencies. For now, it supports vector and matrix operations, as well as converting between degrees and radians. Not production-ready yet, but a fun project to learn about how the math works behind the scenes. _Looking at you, [fast inverse square root](https://en.wikipedia.org/wiki/Fast_inverse_square_root)_.'
+    },
+    {
+      id: 1,
+      title: 'Initialization File Parser',
+      github: 'https://github.com/chapmankyle/dotini',
+      languages: ['C++'],
+      description: 'Developed a header-only C++ initialization file (`.ini`) parser written in C++17, built to favour readability over speed, and stores all parsed key-value pairs inside a map for easy access. I wanted to learn about file parsing in C++ so this is the result.'
     }
   ]
 }

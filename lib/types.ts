@@ -6,7 +6,7 @@ export interface IMetadata {
   title: string
   summary: string
   about: string
-  languages: string[]
+  languages: readonly string[]
 }
 
 export interface ILocation {
@@ -28,7 +28,7 @@ export interface IExperience {
   company: string
   imagePath: string
   description: string
-  technologies: string[]
+  technologies: readonly string[]
   location: ILocation
   dateAsString?: string
   duration?: IDuration
@@ -46,10 +46,22 @@ export interface IEducation {
   location: ILocation
 }
 
+export interface IProject {
+  id: number
+  title: string
+  github: string
+  languages: readonly string[]
+  description: string
+  imagePath?: string
+  isWebsite?: boolean
+  image?: string
+}
+
 export interface IAPIData {
   metadata: IMetadata
-  experience: IExperience[]
-  education: IEducation[]
+  experience: readonly IExperience[]
+  education: readonly IEducation[]
+  projects: readonly IProject[]
 }
 
 export interface ISectionProps {
