@@ -1,3 +1,5 @@
+import { GraduationCapIcon } from 'lucide-react'
+
 import BlurFade from '@/components/magicui/blur-fade'
 
 import { Row } from '@/components/sections/row'
@@ -12,7 +14,10 @@ export default function Education ({
     <section id='education'>
       <div className='flex min-h-0 flex-col gap-y-3'>
         <BlurFade delay={blurDelay * 7}>
-          <h2 className='text-xl font-bold'>Education</h2>
+          <h2 className='flex gap-2 text-xl font-bold items-center'>
+            <GraduationCapIcon strokeWidth={2} className='w-4 h-4' />
+            Education
+          </h2>
         </BlurFade>
         {data.education.map((edu, idx) => (
           <BlurFade

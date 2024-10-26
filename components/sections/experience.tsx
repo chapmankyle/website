@@ -1,3 +1,5 @@
+import { File01Icon } from 'hugeicons-react'
+
 import BlurFade from '@/components/magicui/blur-fade'
 
 import { Row } from '@/components/sections/row'
@@ -12,7 +14,10 @@ export default function Experience ({
     <section id='experience'>
       <div className='flex min-h-0 flex-col gap-y-3'>
         <BlurFade delay={blurDelay * 5}>
-          <h2 className='text-xl font-bold'>Experience</h2>
+          <h2 className='flex gap-2 text-xl font-bold items-center'>
+            <File01Icon strokeWidth={2} className='w-4 h-4' />
+            Experience
+          </h2>
         </BlurFade>
         {data.experience.map((exp, idx) => (
           <BlurFade

@@ -1,4 +1,4 @@
-import { LanguageSquareIcon, Location01Icon } from 'hugeicons-react'
+import { Location01Icon, SourceCodeIcon } from 'hugeicons-react'
 
 import BlurFade from '@/components/magicui/blur-fade'
 import BlurFadeText from '@/components/magicui/blur-fade-text'
@@ -12,7 +12,6 @@ export default function Header ({
 }: ISectionProps): JSX.Element {
   const name = data.metadata.name.split(' ')[0].toLowerCase()
   const summary = [data.metadata.title, data.metadata.summary].join('. ') + '.'
-  const locationCountry = data.metadata.location.split(', ')[1]
 
   return (
     <section id='hero'>
@@ -39,23 +38,17 @@ export default function Header ({
           </BlurFade>
         </div>
       </div>
-      <div className='flex items-center mt-1 gap-5 sm:gap-7'>
+      <div className='flex flex-col sm:flex-row sm:items-center mt-1 gap-1 sm:gap-7'>
         <BlurFadeText
           delay={blurDelay}
-          className='flex sm:hidden items-center text-xs sm:text-sm text-muted-foreground mt-1'
-          icon={<Location01Icon className='h-3 w-3 sm:h-4 sm:w-4' />}
-          text={locationCountry}
-        />
-        <BlurFadeText
-          delay={blurDelay}
-          className='hidden sm:flex items-center text-xs sm:text-sm text-muted-foreground mt-1'
+          className='flex items-center text-xs sm:text-sm text-muted-foreground mt-1'
           icon={<Location01Icon className='h-3 w-3 sm:h-4 sm:w-4' />}
           text={data.metadata.location}
         />
         <BlurFadeText
           delay={blurDelay}
           className='flex items-center text-xs sm:text-sm text-muted-foreground mt-1'
-          icon={<LanguageSquareIcon className='h-3 w-3 sm:h-4 sm:w-4' />}
+          icon={<SourceCodeIcon className='h-3 w-3 sm:h-4 sm:w-4' />}
           text={data.metadata.languages.join(', ')}
         />
       </div>
