@@ -16,6 +16,9 @@ const roboto = Roboto({
   display: 'swap'
 })
 
+// Necessary for deploying to Cloudflare Pages
+export const runtime = 'edge'
+
 /** Metadata information */
 export const metadata: Metadata = {
   metadataBase: new URL(STATIC_DATA.url),
