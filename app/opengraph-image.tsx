@@ -17,21 +17,14 @@ export const contentType = 'image/png'
 
 export default async function Image (): Promise<ImageResponse> {
   const metadata = await fetchAPIData('metadata') as IMetadata
-  const robotoRegular = fetch(
-    new URL('./fonts/Roboto-Regular.ttf', import.meta.url)
-  ).then(async (res) => await res.arrayBuffer())
-  const robotoBold = fetch(
-    new URL('./fonts/Roboto-Bold.ttf', import.meta.url)
-  ).then(async (res) => await res.arrayBuffer())
-
   return new ImageResponse(
     (
       <div style={{ display: 'flex', background: 'white', color: 'black', width: '100%', height: '100%', padding: '60px', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'column', flex: '1 1 auto' }}>
-          <h1 style={{ fontSize: 110, lineHeight: '140px' }}>
+          <h1 style={{ fontSize: 100, lineHeight: '130px' }}>
             {metadata.name}
           </h1>
-          <p style={{ fontSize: 70, lineHeight: '90px', color: '#AAA' }}>{metadata.title}</p>
+          <p style={{ fontSize: 60, lineHeight: '80px', color: '#AAA' }}>{metadata.title}</p>
           <div style={{ display: 'flex', gap: 20, color: '#AAA', alignItems: 'center', marginTop: 40 }}>
             <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='currentColor' style={{ width: 30, height: 30 }}><path d='M13.6177 21.367C13.1841 21.773 12.6044 22 12.0011 22C11.3978 22 10.8182 21.773 10.3845 21.367C6.41302 17.626 1.09076 13.4469 3.68627 7.37966C5.08963 4.09916 8.45834 2 12.0011 2C15.5439 2 18.9126 4.09916 20.316 7.37966C22.9082 13.4393 17.599 17.6389 13.6177 21.367Z' stroke='currentColor' /><path d='M15.5 11C15.5 12.933 13.933 14.5 12 14.5C10.067 14.5 8.5 12.933 8.5 11C8.5 9.067 10.067 7.5 12 7.5C13.933 7.5 15.5 9.067 15.5 11Z' stroke='currentColor' /></svg>
             <p style={{ fontSize: 32, lineHeight: '40px' }}>{metadata.location}</p>
@@ -46,22 +39,6 @@ export default async function Image (): Promise<ImageResponse> {
         </span>
       </div>
     ),
-    {
-      ...size,
-      fonts: [
-        {
-          name: 'Roboto-Regular',
-          data: await robotoRegular,
-          style: 'normal',
-          weight: 400
-        },
-        {
-          name: 'Roboto-Bold',
-          data: await robotoBold,
-          style: 'normal',
-          weight: 700
-        }
-      ]
-    }
+    { ...size }
   )
 }
