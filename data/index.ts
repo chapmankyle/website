@@ -16,6 +16,6 @@ export const fetchAPIData = async (id?: IdParam): Promise<IAPIData | IMetadata |
     route = id
   }
 
-  const response = await fetch(`${API_URL}/${route}`, { method: 'GET' })
+  const response = await fetch(`${API_URL}/${route}`, { method: 'GET', cache: 'force-cache' })
   return (await response.json()).data
 }
