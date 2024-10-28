@@ -1,14 +1,12 @@
 import React from 'react'
 
 import { cn } from '@/lib/utils'
-interface RainbowButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export function RainbowButton ({
   children,
   className,
   ...props
-}: RainbowButtonProps): JSX.Element {
+}: React.ButtonHTMLAttributes<HTMLButtonElement>): JSX.Element {
   return (
     <button
       className={cn(
