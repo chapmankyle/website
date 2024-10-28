@@ -4,7 +4,7 @@ import type { IAPIData, IEducation, IExperience, IMetadata, IProject } from '@/l
 export const BASE_URL = process.env.API_ROOT_URL ?? ''
 
 /** API endpoint URL */
-export const API_URL = `${BASE_URL}/api/v2`
+export const API_URL = `${BASE_URL}/v2`
 
 type IdParam = 'all' | 'metadata' | 'experience' | 'education' | 'projects'
 
