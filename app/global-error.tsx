@@ -12,7 +12,7 @@ export default function GlobalError ({
   error
 }: {
   error: Error & { digest?: string }
-}) {
+}): JSX.Element {
   const data = FALLBACK_DATA
 
   useEffect(() => {
