@@ -34,8 +34,7 @@ const authorize = async (): Promise<IAuthResponse> => {
       body: JSON.stringify({
         username: process.env.API_USERNAME,
         password: process.env.API_PASSWORD
-      }),
-      cache: 'no-store'
+      })
     })
 
     if (!response.ok) {
@@ -65,8 +64,7 @@ export const fetchAPIData = async (id?: IdParam): Promise<IAPIData | IMetadata |
     method: 'GET',
     headers: {
       Authorization: `Bearer ${data.token}`
-    },
-    cache: 'no-store'
+    }
   })
   return (await response.json()).data
 }
