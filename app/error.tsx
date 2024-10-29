@@ -16,7 +16,14 @@ export default function Error ({
   const data = FALLBACK_DATA
 
   useEffect(() => {
-    Sentry.captureException(error)
+    let sentryEnabled = process.env.NEXT_PUBLIC_SENTRY_ENABLED ?? true
+    if (typeof sentryEnabled === 'string') {
+      sentryEnabled = !!parseInt(sentryEnabled)
+    }
+
+    if (sentryEnabled) {
+      Sentry.captureException(error)
+    }
   }, [error])
 
   return (
