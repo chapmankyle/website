@@ -120,11 +120,11 @@ export const Row = ({
                 <Markdown
                   className='prose mt-2 text-xs sm:text-sm text-foreground/80'
                   components={{
-                    strong: ({ node, ...props }) => <strong {...props} className='font-semibold text-foreground' />,
-                    p: ({ node, ...props }) => <p {...props} className='mb-1' />,
-                    ul: ({ node, ...props }) => <ul {...props} className='list-disc pl-5 my-1' />,
-                    li: ({ node, ...props }) => <li {...props} className='mb-0' />,
-                    code: ({ node, ...props }) => <code {...props} className='px-1 py-[1px] bg-[#DDD] rounded border border-[#BFBFBF]' />
+                    strong: ({ ...props }) => <strong {...props} className='font-semibold text-foreground' />,
+                    p: ({ ...props }) => <p {...props} className='mb-1' />,
+                    ul: ({ ...props }) => <ul {...props} className='list-disc pl-5 my-1' />,
+                    li: ({ ...props }) => <li {...props} className='mb-0' />,
+                    code: ({ ...props }) => <code {...props} className='px-1 py-[1px] bg-[#DDD] rounded border border-[#BFBFBF]' />
                   }}
                 >
                   {description}
