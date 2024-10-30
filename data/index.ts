@@ -19,9 +19,13 @@ interface IAuthData {
   token: string
 }
 
+interface IError {
+  message: string
+}
+
 interface IAuthResponse {
   data: IAuthData | null
-  error: any | null
+  error: IError | null
 }
 
 const authorize = async (): Promise<IAuthResponse> => {
@@ -43,16 +47,16 @@ const authorize = async (): Promise<IAuthResponse> => {
 
     const { payload, token } = await response.json()
     return { data: { payload, token }, error: null }
-  } catch (err: any) {
+  } catch (err) {
     console.error('Error authorizing with API:', err)
-    return { data: null, error: err }
+    return { data: null, error: err as IError }
   }
 }
 
 export const fetchAPIData = async (id?: IdParam): Promise<IAPIData | IMetadata | IExperience | IEducation | IProject> => {
   const { data, error } = await authorize()
   if (data == null || error != null) {
-    throw new Error(error?.message || 'An unknown error occurred.')
+    throw new Error(error?.message ?? 'An unknown error occurred.')
   }
 
   let route = 'all'
