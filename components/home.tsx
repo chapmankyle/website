@@ -3,6 +3,7 @@ import Education from '@/components/sections/education'
 import Experience from '@/components/sections/experience'
 import Header from '@/components/sections/header'
 import Projects from '@/components/sections/projects'
+import Contact from '@/components/sections/contact'
 
 import { IAPIData } from '@/lib/types'
 
@@ -23,6 +24,7 @@ export default function Home ({
       <Experience data={data} blurDelay={BLUR_FADE_DELAY} />
       <Education data={data} blurDelay={BLUR_FADE_DELAY} />
       <Projects data={data} blurDelay={BLUR_FADE_DELAY} />
+      <Contact data={data} blurDelay={BLUR_FADE_DELAY} />
     </main>
   )
 }

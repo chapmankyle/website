@@ -9,7 +9,7 @@ export default function Projects ({
 }: ISectionProps): JSX.Element {
   return (
     <section id='projects'>
-      <div className='space-y-12 w-full py-12'>
+      <div className='space-y-12 w-full py-6 sm:py-8'>
         <BlurFade delay={blurDelay * 9}>
           <div className='flex flex-col items-center justify-center space-y-4 text-center'>
             <div className='space-y-2'>
