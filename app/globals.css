@@ -71,6 +71,7 @@
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -83,11 +84,11 @@ h3 code {
 }
 
 pre {
-  @apply !px-0 rounded-lg overflow-x-auto py-4
+  @apply !px-0 rounded-lg overflow-x-auto py-4;
 }
 
 pre [data-line] {
-  @apply px-4
+  @apply px-4;
 }
 
 code {
@@ -96,6 +97,10 @@ code {
 
 pre>code {
   counter-reset: line;
+}
+
+section {
+  @apply pt-3;
 }
 
 code[data-theme*=" "],

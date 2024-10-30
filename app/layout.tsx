@@ -3,6 +3,8 @@ import type { Metadata, Viewport } from 'next'
 
 import './globals.css'
 
+import Navbar from '@/components/navbar'
+
 import { cn } from '@/lib/utils'
 import { fetchAPIData } from '@/data'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -85,6 +87,7 @@ export default function RootLayout ({
         <ThemeProvider>
           <TooltipProvider delayDuration={0}>
             {children}
+            <Navbar />
           </TooltipProvider>
         </ThemeProvider>
       </body>

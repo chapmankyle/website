@@ -15,10 +15,10 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
 }
 
 const DEFAULT_MAGNIFICATION = 60
-const DEFAULT_DISTANCE = 140
+const DEFAULT_DISTANCE = 100
 
 const dockVariants = cva(
-  'supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-[58px] w-max gap-2 rounded-2xl border p-2 backdrop-blur-md'
+  'flex aspect-square cursor-pointer items-center justify-center rounded-full'
 )
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
@@ -28,15 +28,15 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       children,
       magnification = DEFAULT_MAGNIFICATION,
       distance = DEFAULT_DISTANCE,
-      direction = 'bottom',
+      direction = 'middle',
       ...props
     },
     ref
   ) => {
     const mouseX = useMotionValue(Infinity)
 
-    const renderChildren = (): Array<Promise<any>> | null | undefined => {
-      return React.Children.map(children, async (child) => {
+    const renderChildren = (): any[] | null | undefined => {
+      return React.Children.map(children, child => {
         if (React.isValidElement(child) && child.type === DockIcon) {
           return React.cloneElement(child, {
             ...child.props,
@@ -45,7 +45,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
             distance
           })
         }
-        return await child
+        return child
       })
     }
 
@@ -55,7 +55,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         {...props}
-        className={cn(dockVariants({ className }), {
+        className={cn(className, {
           'items-start': direction === 'top',
           'items-center': direction === 'middle',
           'items-end': direction === 'bottom'
@@ -70,6 +70,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 Dock.displayName = 'Dock'
 
 export interface DockIconProps {
+  size?: number
   magnification?: number
   distance?: number
   mouseX?: any
@@ -79,6 +80,7 @@ export interface DockIconProps {
 }
 
 const DockIcon = ({
+  size,
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
   mouseX,
@@ -110,10 +112,7 @@ const DockIcon = ({
     <motion.div
       ref={ref}
       style={{ width }}
-      className={cn(
-        'flex aspect-square cursor-pointer items-center justify-center rounded-full',
-        className
-      )}
+      className={cn(dockVariants({ className }))}
       {...props}
     >
       {children}

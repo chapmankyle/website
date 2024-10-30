@@ -18,7 +18,7 @@ export default function Home ({
   data
 }: IHomeProps): JSX.Element {
   return (
-    <main className='flex flex-col space-y-7 sm:space-y-10'>
+    <main className='flex flex-col space-y-6 sm:space-y-9'>
       <Header data={data} blurDelay={BLUR_FADE_DELAY} />
       <About data={data} blurDelay={BLUR_FADE_DELAY} />
       <Experience data={data} blurDelay={BLUR_FADE_DELAY} />
