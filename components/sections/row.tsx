@@ -1,7 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
+import Markdown from 'react-markdown'
 
 import { motion } from 'framer-motion'
 import { ChevronRightIcon } from 'lucide-react'
@@ -25,6 +26,7 @@ interface RowProps {
   duration?: IDuration
   location?: ILocation
   roleType?: string
+  expand?: boolean
 }
 
 export const Row = ({
@@ -38,9 +40,10 @@ export const Row = ({
   description,
   duration,
   location,
-  roleType
+  roleType,
+  expand
 }: RowProps): JSX.Element => {
-  const [isExpanded, setIsExpanded] = React.useState(false)
+  const [isExpanded, setIsExpanded] = React.useState(expand ?? false)
   const durationStr = [
     duration?.years != null && duration.years > 0
       ? `${duration.years} yr${duration.years > 1 ? 's' : ''}`
@@ -52,10 +55,6 @@ export const Row = ({
   const bodySubtitle = [location?.name, durationStr].filter(s => s != null).join(' | ')
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
-    if (description == null) {
-      return
-    }
-
     e.preventDefault()
     setIsExpanded(!isExpanded)
   }
@@ -80,7 +79,7 @@ export const Row = ({
                 {title}
                 <ChevronRightIcon
                   className={cn(
-                    'size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100',
+                    'size-4 translate-x-[2px] opacity-50 transform transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100',
                     isExpanded ? 'rotate-90' : 'rotate-0'
                   )}
                 />
@@ -118,9 +117,18 @@ export const Row = ({
                     </span>
                     )
                   : null}
-                <span className='mt-3'>
+                <Markdown
+                  className='prose mt-2 text-xs sm:text-sm text-foreground/80'
+                  components={{
+                    strong: ({ node, ...props }) => <strong {...props} className='font-semibold text-foreground' />,
+                    p: ({ node, ...props }) => <p {...props} className='mb-1' />,
+                    ul: ({ node, ...props }) => <ul {...props} className='list-disc pl-5 my-1' />,
+                    li: ({ node, ...props }) => <li {...props} className='mb-0' />,
+                    code: ({ node, ...props }) => <code {...props} className='px-1 py-[1px] bg-[#DDD] rounded border border-[#BFBFBF]' />
+                  }}
+                >
                   {description}
-                </span>
+                </Markdown>
               </motion.div>
               )
             : null}

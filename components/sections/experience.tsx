@@ -12,7 +12,7 @@ export default function Experience ({
 }: ISectionProps): JSX.Element {
   return (
     <section id='experience'>
-      <div className='flex min-h-0 flex-col gap-y-3'>
+      <div className='flex min-h-0 flex-col gap-y-4'>
         <BlurFade delay={blurDelay * 5}>
           <h2 className='flex gap-2 text-xl font-bold items-center'>
             <File01Icon strokeWidth={2} className='w-4 h-4' />
@@ -35,6 +35,7 @@ export default function Experience ({
               duration={exp.duration}
               location={exp.location}
               roleType={exp.type}
+              expand={idx === 0}
             />
           </BlurFade>
         ))}

@@ -31,7 +31,7 @@ export default function Header ({
             />
           </div>
           <BlurFade delay={blurDelay}>
-            <Avatar className='size-28 border'>
+            <Avatar className='size-28 border shadow-md'>
               <AvatarImage alt={data.metadata.name} src='/me.webp' />
               <AvatarFallback>{data.metadata.initials}</AvatarFallback>
             </Avatar>
