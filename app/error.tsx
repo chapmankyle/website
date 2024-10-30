@@ -18,7 +18,8 @@ export default function Error ({
   useEffect(() => {
     let sentryEnabled = process.env.NEXT_PUBLIC_SENTRY_ENABLED ?? true
     if (typeof sentryEnabled === 'string') {
-      sentryEnabled = !!parseInt(sentryEnabled)
+      const parsed = parseInt(sentryEnabled)
+      sentryEnabled = isNaN(parsed) ? true : parsed !== 0
     }
 
     if (sentryEnabled) {
