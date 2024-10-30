@@ -9,6 +9,12 @@ export interface IMetadata {
   languages: readonly string[]
 }
 
+export interface IContact {
+  email: string
+  linkedin: string
+  github: string
+}
+
 export interface ILocation {
   flag: string
   name: string
@@ -59,6 +65,7 @@ export interface IProject {
 
 export interface IAPIData {
   metadata: IMetadata
+  contact: IContact
   experience: readonly IExperience[]
   education: readonly IEducation[]
   projects: readonly IProject[]

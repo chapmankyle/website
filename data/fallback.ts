@@ -11,22 +11,22 @@ export const FALLBACK_DATA: IAPIData = {
     about: "I started learning JavaScript to prepare for IT classes in school, only to realize that we were actually getting taught Java. Ever since then, I've learnt to read more carefully. Now I have more than 3 years of professional experience and still have the same passion to learn that I've had since that day.",
     languages: ['React', 'TypeScript', 'Ruby on Rails', 'Python', 'Docker']
   },
+  contact: {
+    email: 'contact@kylechapman.dev',
+    linkedin: 'https://www.linkedin.com/in/kyle-chapman-87062730/',
+    github: 'https://github.com/chapmankyle'
+  },
   experience: [
     {
       id: 7,
       dateAsString: '2024-10-01',
       startDate: 'Oct 2024',
       endDate: 'present',
-      duration: {
-        years: 0,
-        months: 1
-      },
       title: 'Lead Full Stack Engineer',
       type: 'Full-time',
       company: 'Zilverline B.V.',
       imagePath: '/static/zilverline-logo.jpg',
-      description:
-        'I am part of a team that is developing an e-commerce platform that allows various shops to each sell their own products. We support various payment methods (iDEAL, Klarna, etc.), product returns, order tracking, product variations (i.e. "XS", "S" etc. for clothing items) and much more.<br /><br />Our main focus is to make it as easy as possible for people to create their own shops and start selling their products, and for customers to be able to easily support any shops of their choice by buying their products.',
+      description: 'After 6 months, I was promoted to **lead** the e-commerce platform project.\n\nAs the **lead developer**, some of my responsibilities are:\n- **Development**: 30% frontend / 55% backend / 15% maintenance\n- **A/B testing** and analysis\n- **Production** deployments\n- Performing **code reviews**',
       technologies: ['Ruby on Rails', 'Stimulus', 'jQuery', 'Bootstrap', 'PostgreSQL', 'GitHub Actions'],
       location: {
         flag: '🇳🇱',
@@ -46,8 +46,8 @@ export const FALLBACK_DATA: IAPIData = {
       type: 'Full-time',
       company: 'Zilverline B.V.',
       imagePath: '/static/zilverline-logo.jpg',
-      description: '',
-      technologies: ['Ruby on Rails', 'Stimulus', 'jQuery', 'Bootstrap', 'PostgreSQL', 'GitHub Actions'],
+      description: 'I am part of a team that is developing a **multi-tenant, e-commerce platform** that facilitates buying products from a **range of shops**. Supports **various payment methods** (iDEAL, Klarna, etc.) product returns, order tracking (DHL & PostNL), promotions, coupon codes, and more.\n\nSome of my responsibilities are:\n- **Development**: 55% frontend / 35% backend / 10% maintenance\n- **Shop onboarding overhaul**, which increased the number of shops onboarded by 18%\n- Dashboard **UI/UX** updates to make it easier for shop owners to find the information they need\n- **Prompt engineering** using OpenAI models to **automatically generate** product descriptions, about pages and more',
+      technologies: ['Ruby on Rails', 'JavaScript', 'Stimulus', 'Bootstrap', 'Node.js', 'PostgreSQL', 'GitHub Actions'],
       location: {
         flag: '🇳🇱',
         name: 'Amsterdam, Netherlands'
@@ -65,9 +65,8 @@ export const FALLBACK_DATA: IAPIData = {
       type: 'Full-time',
       company: 'ydangle apps (Pty) Ltd.',
       imagePath: '/static/ydangle-logo.jpg',
-      description:
-        'I was part of a team that was developing a 3D, social website that allowed users to interact with one another in a shared environment. Environments could be created by users and were fully customizable, from the skybox to the audio you heard when walking up to something, which allowed for truly unique experiences that could not be found elsewhere. We used our own implementation of spatial audio that played sounds relative to where you were in the environment, making it feel more like reality.<br /><br />Our main focus was to make it easy for users to attend events and social gatherings from the comfort of their own home, through our 3D website. The platform was designed to host thousands of concurrent users in a single environment at any given moment.<br /><br />Some of my contributions were to solely implement a new chat system (with features such as reactions, threads, groups etc.), rewrite the logic for our editor tools (allowing users more control over how they wanted their environment to look and feel), add multiple third-party integrations (Slack, Teams, Sketchfab, etc.) and update the UX and UI to ensure a smooth and visually-appealing experience.',
-      technologies: ['React', 'TypeScript', 'Firebase', 'three.js'],
+      description: 'After 7 months, I was promoted to **lead** the 3D website project.\n\nAs the **lead developer**, some of my responsibilities were:\n- **Development**: 40% frontend / 50% backend / 10% maintenance\n- Implementation of **Slack and Teams** integrations to join worlds from outside our website\n- Implementation of **Sketchfab** integration to allow users to pull 3D models into their worlds\n- Implementation of a fully-fledged **achievement system** to gamify the experience, which lead to a 21% increase in monthly active users (MAU).\n- **Production** deployments\n- Performing **code reviews**\n- **Mentoring** new colleagues',
+      technologies: ['React', 'TypeScript', 'Firebase', 'three.js', 'Node.js'],
       location: {
         flag: '🇿🇦',
         name: 'Cape Town, South Africa'
@@ -86,9 +85,8 @@ export const FALLBACK_DATA: IAPIData = {
       type: 'Full-time',
       company: 'ydangle apps (Pty) Ltd.',
       imagePath: '/static/ydangle-logo.jpg',
-      description:
-        'I was part of a team that was developing a 3D, social website that allowed users to interact with one another in a shared environment. Environments could be created by users and were fully customizable, from the skybox to the audio you heard when walking up to something, which allowed for truly unique experiences that could not be found elsewhere. We used our own implementation of spatial audio that played sounds relative to where you were in the environment, making it feel more like reality.<br /><br />Our main focus was to make it easy for users to attend events and social gatherings from the comfort of their own home, through our 3D website. The platform was designed to host thousands of concurrent users in a single environment at any given moment.<br /><br />Some of my contributions were to solely implement a new chat system (with features such as reactions, threads, groups etc.), rewrite the logic for our editor tools (allowing users more control over how they wanted their environment to look and feel), add multiple third-party integrations (Slack, Teams, Sketchfab, etc.) and update the UX and UI to ensure a smooth and visually-appealing experience.',
-      technologies: ['React', 'JavaScript', 'Firebase', 'three.js'],
+      description: 'I was part of a team that was developing a **3D, social website** which allowed users to interact with each other (using voice and video) in a **shared** world, **editable** by admins of the world.\n\nSome of my responsibilities were:\n- **Development**: 50% frontend / 45% backend / 5% maintenance\n- Implementation of an **editor system** so that worlds could be customizable, such as **changing the skybox** and **moving/scaling/rotating** objects in 3D space\n- Implementation of a **chat system** that supported typing indicators, threads, emojis, message reactions and more\n- Overhauled the **UI/UX** to make the website more visually appealing and easier to use',
+      technologies: ['React', 'JavaScript', 'Firebase', 'three.js', 'Node.js'],
       location: {
         flag: '🇿🇦',
         name: 'Cape Town, South Africa'
@@ -106,7 +104,7 @@ export const FALLBACK_DATA: IAPIData = {
       type: 'Part-time',
       company: 'Stellenbosch University',
       imagePath: '/static/stellenbosch-logo.jpg',
-      description: 'I was a tutor for second-year university students. I helped them understand the course work and created mock exams for them to test their skills. All of my students passed their final exams with ease.',
+      description: 'I was a **tutor** for second-year university students. I helped them **understand** the course work and created **mock exams** for them to test their skills. All of my students **passed** their final exams with ease.',
       technologies: ['C', 'Assembly'],
       location: {
         flag: '🇿🇦',
@@ -125,8 +123,7 @@ export const FALLBACK_DATA: IAPIData = {
       type: 'Internship',
       company: 'VASTech (Pty) Ltd.',
       imagePath: '/static/vastech-logo.jpg',
-      description:
-        'I worked on a visualization for geospatial data using OpenLayers, which allowed a user to interact with a map of the world. Various data points could be plotted and played around with in order to visualize specific elements of the data points. I learnt a lot about Vue as a whole, how to integrate OpenLayers with Vue and all the quirks of TypeScript development.',
+      description: 'Developed a **visualization** for **geospatial data** using OpenLayers, which allowed a user to **interact** with a map of the **world**. Various data points could be plotted and played around with in order to visualize specific elements of the data points. I learnt a lot about **Vue** as a whole, how to integrate **OpenLayers** with Vue and all the quirks of **TypeScript** development.',
       technologies: ['Vue.js', 'TypeScript', 'OpenLayers'],
       location: {
         flag: '🇿🇦',
@@ -145,8 +142,7 @@ export const FALLBACK_DATA: IAPIData = {
       type: 'Internship',
       company: 'VASTech (Pty) Ltd.',
       imagePath: '/static/vastech-logo.jpg',
-      description:
-        'I worked on a speaker identification program, which took in an audio recording of multiple people speaking and output a separate folder for each speaker in that audio recording. I learnt a lot about the interaction between Python and REST APIs, and how to apply various alterations to audio so that the voices could be separated.',
+      description: 'Developed a **speaker identification** program, which took in an **audio recording** of multiple people speaking and output a folder for **each speaker** in the audio recording. I learnt a lot about the interaction between **Python** and **REST APIs**, and how to apply various **alterations to audio** so that the unique voices could be **separated**.',
       technologies: ['Python', 'REST', 'cURL'],
       location: {
         flag: '🇿🇦',
@@ -162,7 +158,7 @@ export const FALLBACK_DATA: IAPIData = {
       title: 'Bachelor of Science Honours degree in Computer Science (BScHons)',
       school: 'Stellenbosch University',
       imagePath: '/static/stellenbosch-logo.jpg',
-      description: 'Completed my Bachelor of Science degree in Mathematical Sciences in Computer Science, with an honours in Computer Science, in November 2020.',
+      description: 'Completed my **Bachelor of Science** degree in Mathematical Sciences in Computer Science, with an **honours** in **Computer Science**, in November 2020.\n\nI worked on an **online tournament platform** that could host concurrent tournaments of the game "Othello". Players were put into **matches** to determine their **skill level**, and the **best players** were eventually put in matches to determine an **overall winner**.\n\nIt had the following functionality:\n- User upload for a `.c` file containing player behaviour\n- **Validation** of uploaded player file\n- Matches scheduled in **round-robin** format\n- **Automatically created** matches for **best players** once tournament finished\n- **Analysis** of winning players',
       location: {
         flag: '🇿🇦',
         name: 'Stellenbosch, South Africa'
@@ -175,7 +171,7 @@ export const FALLBACK_DATA: IAPIData = {
       title: 'Bachelor of Science degree in Computer Science (BSc)',
       school: 'Stellenbosch University',
       imagePath: '/static/stellenbosch-logo.jpg',
-      description: 'Completed my Bachelor of Science degree in Mathematical Sciences in Computer Science in November 2019.',
+      description: 'Completed my **Bachelor of Science** degree in Mathematical Sciences in **Computer Science** in November 2019.\n\nI took **various classes** in fields such as data structures, algorithms, web development and computer networks, as well as **applied mathematics** classes in linear algebra, calculus, probability, and statistics.',
       location: {
         flag: '🇿🇦',
         name: 'Stellenbosch, South Africa'
@@ -187,7 +183,7 @@ export const FALLBACK_DATA: IAPIData = {
       id: 4,
       title: 'Personal Website',
       github: 'https://github.com/chapmankyle/website',
-      languages: ['Next.js', 'Typescript', 'Tailwind', 'Shadcn UI', 'Netlify'],
+      languages: ['Next.js', 'Typescript', 'Tailwind', 'Shadcn UI', 'Cloudflare Pages'],
       description: "Developed to complement my CV, as well as to showcase my skills and experience. Also it's nice to be able to say, \"yeah I have a website\". Previously, it was written in Vue, but I wanted to learn Next.js so I rewrote it.",
       isWebsite: true
     },
@@ -196,22 +192,21 @@ export const FALLBACK_DATA: IAPIData = {
       title: 'REST API for Personal Website',
       github: 'https://github.com/chapmankyle/website-api',
       languages: ['TypeScript', 'Hono', 'Bun', 'Cloudflare Workers'],
-      description: 'Developed to fetch data for my personal website, instead of having to redeploy the website every time I want to change something. Hosted as a Cloudflare Worker, so that was pretty cool to learn about.',
-      isWebsite: true
+      description: 'Developed to fetch data for my personal website, instead of having to redeploy the website every time I want to change something. Hosted as a Cloudflare Worker, so that was pretty cool to learn about.'
     },
     {
       id: 2,
-      title: 'smath',
-      github: 'https://github.com/chapmankyle/smath',
-      languages: ['C++'],
-      description: 'Developed a header-only C++ math library, similar to [GLM](https://github.com/g-truc/glm), written in C++17 that uses no external dependencies. For now, it supports vector and matrix operations, as well as converting between degrees and radians. Not production-ready yet, but a fun project to learn about how the math works behind the scenes. _Looking at you, [fast inverse square root](https://en.wikipedia.org/wiki/Fast_inverse_square_root)_.'
+      title: 'Carbon Engine',
+      github: 'https://github.com/chapmankyle/carbon-engine',
+      languages: ['C++', 'Vulkan', 'GLFW', 'CMake', 'Travis CI'],
+      description: 'Developed a game engine in C++17 that uses the Vulkan API for rendering. It can only render a 2D triangle for now, but it was a fun project to work on in my free time. I had no prior experience with either C++ or Vulkan, so the only logical thing to do was to make a game engine from scratch, right?'
     },
     {
       id: 1,
-      title: 'Initialization File Parser',
-      github: 'https://github.com/chapmankyle/dotini',
+      title: 'smath',
+      github: 'https://github.com/chapmankyle/smath',
       languages: ['C++'],
-      description: 'Developed a header-only C++ initialization file (`.ini`) parser written in C++17, built to favour readability over speed, and stores all parsed key-value pairs inside a map for easy access. I wanted to learn about file parsing in C++ so this is the result.'
+      description: 'Developed a header-only C++ math library, similar to [GLM](https://github.com/g-truc/glm), written in C++17 that uses no external dependencies. For now, it supports vector and matrix operations, as well as converting between degrees and radians. Not production-ready yet, but a fun project to learn about how the math works behind the scenes. Like the [fast inverse square root](https://en.wikipedia.org/wiki/Fast_inverse_square_root).'
     }
   ]
 }
