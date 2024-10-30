@@ -7,7 +7,7 @@ export default function Contact ({
 }: ISectionProps): JSX.Element {
   return (
     <section id='contact'>
-      <div className='grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-6 sm:py-8'>
+      <div className='grid items-center justify-center gap-4 px-4 text-center sm:px-6 w-full pt-2 pb-10 sm:py-8'>
         <BlurFade delay={blurDelay * 15}>
           <div className='space-y-3'>
             <div className='inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm'>

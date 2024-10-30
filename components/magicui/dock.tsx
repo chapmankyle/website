@@ -36,6 +36,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const mouseX = useMotionValue(Infinity)
 
     const renderChildren = (): any[] | null | undefined => {
+      // eslint-disable-next-line @typescript-eslint/promise-function-async
       return React.Children.map(children, child => {
         if (React.isValidElement(child) && child.type === DockIcon) {
           return React.cloneElement(child, {
@@ -70,7 +71,6 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 Dock.displayName = 'Dock'
 
 export interface DockIconProps {
-  size?: number
   magnification?: number
   distance?: number
   mouseX?: any
@@ -80,7 +80,6 @@ export interface DockIconProps {
 }
 
 const DockIcon = ({
-  size,
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
   mouseX,
