@@ -19,6 +19,14 @@ const config: Config = {
       fontFamily: {
         sans: 'var(--custom-font-sans)'
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            'code::before': false,
+            'code::after': false
+          }
+        }
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
