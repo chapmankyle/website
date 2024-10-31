@@ -35,6 +35,7 @@ export default function Experience ({
               duration={exp.duration}
               location={exp.location}
               roleType={exp.type}
+              tech={exp.technologies}
               expand={idx === 0}
             />
           </BlurFade>

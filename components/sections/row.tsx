@@ -134,9 +134,9 @@ export const Row = ({
             : null}
           {tech != null
             ? (
-              <span className='inline-flex gap-x-1'>
+              <span className='flex flex-wrap gap-1 mt-2'>
                 {tech.map((badge, index) => (
-                  <Badge variant='secondary' className='align-middle text-xs' key={index}>
+                  <Badge variant='secondary' className='align-middle px-1.5 sm:px-2 text-[9px] sm:text-[11px]' key={index}>
                     {badge}
                   </Badge>
                 ))}
