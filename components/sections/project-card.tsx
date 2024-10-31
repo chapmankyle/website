@@ -15,7 +15,7 @@ export function ProjectCard ({
   title,
   description,
   tags,
-  link,
+  link
 }: Props): JSX.Element {
   return (
     <Card
