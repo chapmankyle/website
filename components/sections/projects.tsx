@@ -37,7 +37,6 @@ export default function Projects ({
                 title={project.title}
                 description={project.description}
                 tags={project.languages}
-                image={project.image}
                 link={project.github}
               />
             </BlurFade>
