@@ -80,7 +80,7 @@ export default function RootLayout ({
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={cn(
-        'font-sans antialiased min-h-screen bg-background max-w-2xl mx-auto py-12 sm:py-24 px-6',
+        'font-sans antialiased min-h-screen bg-background max-w-3xl mx-auto py-12 sm:py-24 px-6',
         roboto.variable
       )}
       >
