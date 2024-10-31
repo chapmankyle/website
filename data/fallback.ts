@@ -18,35 +18,18 @@ export const FALLBACK_DATA: IAPIData = {
   },
   experience: [
     {
-      id: 7,
-      dateAsString: '2024-10-01',
-      startDate: 'Oct 2024',
-      endDate: 'present',
-      title: 'Lead Full Stack Engineer',
-      type: 'Full-time',
-      company: 'Zilverline B.V.',
-      imagePath: '/static/zilverline-logo.jpg',
-      description: 'After 6 months, I was promoted to **lead** the e-commerce platform project.\n\nAs the **lead developer**, some of my responsibilities are:\n- **Development**: 30% frontend / 55% backend / 15% maintenance\n- **A/B testing** and analysis\n- **Production** deployments\n- Performing **code reviews**',
-      technologies: ['Ruby on Rails', 'Stimulus', 'jQuery', 'Bootstrap', 'PostgreSQL', 'GitHub Actions'],
-      location: {
-        flag: '🇳🇱',
-        name: 'Amsterdam, Netherlands'
-      },
-      previous: 6
-    },
-    {
       id: 6,
       startDate: 'Apr 2024',
-      endDate: 'Sep 2024',
+      endDate: 'present',
       duration: {
         years: 0,
-        months: 6
+        months: 7
       },
       title: 'Full Stack Engineer',
       type: 'Full-time',
       company: 'Zilverline B.V.',
       imagePath: '/static/zilverline-logo.jpg',
-      description: 'I am part of a team that is developing a **multi-tenant, e-commerce platform** that facilitates buying products from a **range of shops**. Supports **various payment methods** (iDEAL, Klarna, etc.) product returns, order tracking (DHL & PostNL), promotions, coupon codes, and more.\n\nSome of my responsibilities are:\n- **Development**: 55% frontend / 35% backend / 10% maintenance\n- **Shop onboarding overhaul**, which increased the number of shops onboarded by 18%\n- Dashboard **UI/UX** updates to make it easier for shop owners to find the information they need\n- **Prompt engineering** using OpenAI models to **automatically generate** product descriptions, about pages and more',
+      description: 'I am part of a team that is developing a **multi-tenant, e-commerce platform** that facilitates buying products from a **range of shops**. Supports **various payment methods** (iDEAL, Klarna, etc.) product returns, order tracking (DHL & PostNL), promotions, coupon codes, and more.\n\nSome of my responsibilities are:\n- **Development**: 50% frontend / 40% backend / 10% maintenance\n- **Shop onboarding overhaul** to increase the number of shops onboarded\n- Dashboard **UI/UX** updates to make it easier for shop owners to find the information they need\n- **Prompt engineering** using OpenAI models to **automatically generate** product descriptions, about pages and more\n- **Production** deployments\n- Performing **code reviews**',
       technologies: ['Ruby on Rails', 'JavaScript', 'Stimulus', 'Bootstrap', 'Node.js', 'PostgreSQL', 'GitHub Actions'],
       location: {
         flag: '🇳🇱',
