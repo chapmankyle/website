@@ -1,12 +1,11 @@
 <h1 align="center">Personal Website :newspaper:</h1>
 
 <p align="center">
-  <img src="https://circleci.com/gh/chapmankyle/website/tree/master.svg?style=svg" alt="Build Status"></img>
   <img src="https://img.shields.io/github/license/chapmankyle/website.svg?" alt="license: GPL-3.0"></img>
   <img src="https://img.shields.io/github/v/release/chapmankyle/website.svg?" alt="Release"></img>
 </p>
 
-Official website is available at https://kylechapman.netlify.app/ :tada:
+Official website is available at https://kylechapman.dev/ :tada:
 
 This repository serves as the source code for my personal website that accompanies my CV :memo:
 
@@ -37,10 +36,10 @@ npm install
 
 ```bash
 # start the development build
-npm run serve
+npm run dev
 ```
 
-The development version is now accessible at http://localhost:8080.
+The development version is now accessible at http://localhost:3000.
 
 ## :computer: Production Build
 
@@ -49,22 +48,12 @@ The development version is now accessible at http://localhost:8080.
 npm run build
 ```
 
-This will build the relevant files into the `dist` directory. To serve these
-files, you need to install `serve`.
+This will build the relevant files into the `.next` directory. To serve these
+files, you can run the following command.
 
 ```bash
-# install serve globally
-sudo npm install -g serve
+# run as if it was production
+npm run start
 ```
 
-Then run `serve` and give it a port to listen on.
-
-```bash
-# listen on port 4000
-serve -s dist -l 4000
-```
-
-The production version is now accessible at http://localhost:4000.
-
-# Screenshot :camera:
-![screenshot](./screenshot.png)
+The production version is now accessible at http://localhost:3000.

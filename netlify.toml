@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/"
+  to = "https://kylechapman.dev"
+  status = 301
+  force = true
+  headers = {X-From = "Netlify-KC"}
