@@ -79,6 +79,9 @@ export default function RootLayout ({
 }>): JSX.Element {
   return (
     <html lang='en' suppressHydrationWarning>
+      <head>
+        <link rel='preconnect' href='https://api.kylechapman.dev' />
+      </head>
       <body className={cn(
         'font-sans antialiased min-h-screen bg-background max-w-3xl mx-auto py-12 sm:py-24 px-6',
         roboto.variable
