@@ -20,7 +20,7 @@ export default function Contact ({
               You are welcome to send me an email at{' '}
               <a
                 href={`mailto:${data.contact.email}`}
-                className='text-sky-500 underline decoration-2 decoration-sky-500/0 underline-offset-2 transition-all hover:underline hover:decoration-sky-500'
+                className='text-cyan-600 underline decoration-2 decoration-cyan-600/0 underline-offset-2 transition-all hover:underline hover:decoration-cyan-600'
               >
                 {data.contact.email}
               </a>{' '}
@@ -29,7 +29,7 @@ export default function Contact ({
                 href={data.contact.linkedin}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-sky-500 underline decoration-2 decoration-sky-500/0 underline-offset-2 transition-all hover:underline hover:decoration-sky-500'
+                className='text-cyan-600 underline decoration-2 decoration-cyan-600/0 underline-offset-2 transition-all hover:underline hover:decoration-cyan-600'
               >
                 LinkedIn
               </a>.
