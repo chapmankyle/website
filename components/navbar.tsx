@@ -69,6 +69,7 @@ export default function Navbar (): JSX.Element {
               <TooltipTrigger asChild>
                 <Link
                   href={item.href}
+                  aria-label={item.label}
                   className={cn(
                     buttonVariants({ variant: 'ghost', size: 'icon' }),
                     'size-12'
@@ -88,8 +89,9 @@ export default function Navbar (): JSX.Element {
           <DockIcon key={item.href}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <a
+                <Link
                   href={item.href}
+                  aria-label={item.label}
                   target='_blank'
                   rel='noopener noreferrer'
                   className={cn(
@@ -98,7 +100,7 @@ export default function Navbar (): JSX.Element {
                   )}
                 >
                   <item.icon className='size-4' strokeWidth={2} />
-                </a>
+                </Link>
               </TooltipTrigger>
               <TooltipContent>
                 <p>{item.label}</p>
