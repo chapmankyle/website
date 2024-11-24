@@ -12,7 +12,7 @@ const cspHeader = `
   frame-ancestors 'none';
   upgrade-insecure-requests;
   worker-src 'self' blob:;
-`;
+`
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
