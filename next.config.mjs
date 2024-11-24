@@ -1,5 +1,19 @@
 import { withSentryConfig } from '@sentry/nextjs'
 
+const cspHeader = `
+  default-src 'self';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' blob: data: https://api.kylechapman.dev;
+  font-src 'self';
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+  frame-ancestors 'none';
+  upgrade-insecure-requests;
+  worker-src 'self' blob:;
+`;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   logging: {
@@ -9,6 +23,19 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['hugeicons-react']
+  },
+  async headers () {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: cspHeader.replace(/\n/g, '')
+          }
+        ]
+      }
+    ]
   }
 }
 
