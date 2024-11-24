@@ -91,7 +91,7 @@ export function Fireworks ({
   }
 
   return (
-    <div className='hidden w-full space-x-2 mt-[40px] items-center justify-center'>
+    <div style={{ display: 'none !important' }} className='flex w-full space-x-2 mt-[40px] items-center justify-center'>
       <Input type='text' value={value} placeholder='hmmm, what is this?' className='max-w-xs' onChange={evt => setValue(evt.target.value)} />
       <RainbowButton onClick={() => handleClick(value)}>Discover</RainbowButton>
     </div>
