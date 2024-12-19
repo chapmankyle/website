@@ -72,6 +72,16 @@ export const viewport: Viewport = {
   themeColor: '#FFFFFF'
 }
 
+/** Structured data information */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Kyle Chapman',
+  jobTitle: 'Full Stack Engineer',
+  url: 'https://kylechapman.dev',
+  email: 'contact@kylechapman.dev'
+}
+
 export default function RootLayout ({
   children
 }: Readonly<{
@@ -93,6 +103,9 @@ export default function RootLayout ({
             <Navbar />
           </TooltipProvider>
         </ThemeProvider>
+
+        {/* Structured data */}
+        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>
     </html>
   )
