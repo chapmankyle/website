@@ -44,15 +44,15 @@ export const Row = ({
   expand
 }: RowProps): JSX.Element => {
   const [isExpanded, setIsExpanded] = React.useState(expand ?? false)
-  const durationStr = duration
+  const durationStr = (duration != null)
     ? [
-      duration.years != null && duration.years > 0
-        ? `${duration.years} yr${duration.years > 1 ? 's' : ''}`
-        : null,
-      duration.months != null && duration.months > 0
-        ? `${duration.months} mo${duration.months > 1 ? 's' : ''}`
-        : null
-    ].filter(s => s != null && s.length > 0).join(' ')
+        duration.years != null && duration.years > 0
+          ? `${duration.years} yr${duration.years > 1 ? 's' : ''}`
+          : null,
+        duration.months != null && duration.months > 0
+          ? `${duration.months} mo${duration.months > 1 ? 's' : ''}`
+          : null
+      ].filter(s => s != null && s.length > 0).join(' ')
     : null
   const bodySubtitle = [location?.name, durationStr].filter(s => s != null && s.length > 0).join(' | ')
 
@@ -79,14 +79,16 @@ export const Row = ({
             <div className='flex items-center justify-between gap-x-1 md:gap-x-2 text-base'>
               <h3 className='inline-flex items-center justify-center font-semibold leading-none text-sm'>
                 {title}
-                {description && (
-                  <ChevronRightIcon
-                    className={cn(
-                      'size-4 translate-x-[2px] opacity-50 transform transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100',
-                      isExpanded ? 'rotate-90' : 'rotate-0'
-                    )}
-                  />
-                )}
+                {description != null && description.length > 0
+                  ? (
+                    <ChevronRightIcon
+                      className={cn(
+                        'size-4 translate-x-[2px] opacity-50 transform transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100',
+                        isExpanded ? 'rotate-90' : 'rotate-0'
+                      )}
+                    />
+                    )
+                  : null}
               </h3>
               <div className='text-xs sm:text-sm tabular-nums text-muted-foreground text-right'>
                 {period}
