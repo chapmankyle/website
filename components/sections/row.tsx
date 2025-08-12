@@ -102,24 +102,27 @@ export const Row = ({
                 )
               : null}
           </CardHeader>
-          {description == null || description.length < 1
-            ? bodySubtitle?.length > 0 ? <RowSubtitle text={bodySubtitle} /> : null
-            : (
+          {bodySubtitle?.length > 0
+            ? <RowSubtitle text={bodySubtitle} />
+            : null
+          }
+          {description != null && description.length > 0
+            ? (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{
                   opacity: isExpanded ? 1 : 0,
-                  height: isExpanded ? 'auto' : 0
+                  height: isExpanded ? 'auto' : 0,
+                  margin: isExpanded ? '0.25rem 0 0.25rem 0' : 0
                 }}
                 transition={{
                   duration: 0.7,
                   ease: [0.16, 1, 0.3, 1]
                 }}
-                className='mb-1 text-xs sm:text-sm'
+                className='text-xs sm:text-sm'
               >
-                {bodySubtitle?.length > 0 ? <RowSubtitle text={bodySubtitle} /> : null}
                 <Markdown
-                  className='prose mt-2 text-xs sm:text-sm text-foreground/80'
+                  className={`prose ${isExpanded ? "mt-2 " : null}text-xs sm:text-sm text-foreground/80'`}
                   components={{
                     strong: ({ ...props }) => <strong {...props} className='font-semibold text-foreground' />,
                     p: ({ ...props }) => <p {...props} className='mb-1' />,
@@ -131,7 +134,8 @@ export const Row = ({
                   {description}
                 </Markdown>
               </motion.div>
-              )}
+              )
+            : null}
           {tech != null
             ? (
               <span className='flex flex-wrap gap-1 mt-2'>
@@ -151,7 +155,7 @@ export const Row = ({
 
 const RowSubtitle = ({ text }: { text: string }): JSX.Element => {
   return (
-    <span className='flex items-center mt-[1px] mb-1 text-xs text-muted-foreground'>
+    <span className='flex items-center mt-[1px] text-xs text-muted-foreground'>
       {text}
     </span>
   )

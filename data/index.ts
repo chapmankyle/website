@@ -28,6 +28,12 @@ interface IAuthResponse {
   error: IError | null
 }
 
+enum EEmploymentType {
+  FullTime = "Full-time",
+  PartTime = "Part-time",
+  Internship = "Internship"
+}
+
 const authorize = async (): Promise<IAuthResponse> => {
   try {
     const response = await fetch(`${BASE_URL}/authorize`, {
@@ -53,7 +59,11 @@ const authorize = async (): Promise<IAuthResponse> => {
   }
 }
 
-export const fetchAPIData = async (id?: IdParam): Promise<IAPIData | IMetadata | IExperience | IEducation | IProject> => {
+const filterByEmploymentType = (experience: IExperience[], type: EEmploymentType): IExperience[] => {
+  return experience.filter(exp => exp.type === type)
+}
+
+export const fetchAPIData = async (id?: IdParam): Promise<IAPIData | IMetadata | IExperience[] | IEducation[] | IProject[]> => {
   const { data, error } = await authorize()
   if (data == null || error != null) {
     throw new Error(error?.message ?? 'An unknown error occurred.')
@@ -70,5 +80,19 @@ export const fetchAPIData = async (id?: IdParam): Promise<IAPIData | IMetadata |
       Authorization: `Bearer ${data.token}`
     }
   })
-  return (await response.json()).data
+
+  const json = await response.json()
+  if (!json) {
+    throw new Error("Unable to decode JSON from API.")
+  }
+
+  let apiData = json.data
+
+  if (route == "all") {
+    apiData.experience = filterByEmploymentType(apiData.experience, EEmploymentType.FullTime)
+  } else if (route === "experience") {
+    return filterByEmploymentType(apiData, EEmploymentType.FullTime)
+  }
+
+  return apiData
 }
