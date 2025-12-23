@@ -20,9 +20,6 @@ const roboto = Roboto({
   display: 'swap'
 })
 
-// Necessary for deploying to Cloudflare Pages
-export const runtime = 'edge'
-
 /** Metadata information */
 export async function generateMetadata (): Promise<Metadata> {
   const metadata = await fetchAPIData('metadata') as IMetadata

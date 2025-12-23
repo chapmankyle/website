@@ -121,18 +121,19 @@ export const Row = ({
                 }}
                 className='text-xs sm:text-sm'
               >
-                <Markdown
-                  className={`prose ${isExpanded ? "mt-2 " : null}text-xs sm:text-sm text-foreground/80'`}
-                  components={{
-                    strong: ({ ...props }) => <strong {...props} className='font-semibold text-foreground' />,
-                    p: ({ ...props }) => <p {...props} className='mb-1' />,
-                    ul: ({ ...props }) => <ul {...props} className='list-disc pl-5 my-1' />,
-                    li: ({ ...props }) => <li {...props} className='mb-0' />,
-                    code: ({ ...props }) => <code {...props} className='px-1 py-[1px] bg-[#DDD] rounded border border-[#BFBFBF]' />
-                  }}
-                >
-                  {description}
-                </Markdown>
+                <div className={`prose ${isExpanded ? "mt-2 " : null}text-xs sm:text-sm text-foreground/80'`}>
+                  <Markdown
+                    components={{
+                      strong: ({ ...props }) => <strong {...props} className='font-semibold text-foreground' />,
+                      p: ({ ...props }) => <p {...props} className='mb-1' />,
+                      ul: ({ ...props }) => <ul {...props} className='list-disc pl-5 my-1' />,
+                      li: ({ ...props }) => <li {...props} className='mb-0' />,
+                      code: ({ ...props }) => <code {...props} className='px-1 py-[1px] bg-[#DDD] rounded border border-[#BFBFBF]' />
+                    }}
+                  >
+                    {description}
+                  </Markdown>
+                </div>
               </motion.div>
               )
             : null}

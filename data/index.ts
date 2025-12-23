@@ -86,7 +86,7 @@ export const fetchAPIData = async (id?: IdParam): Promise<IAPIData | IMetadata |
     throw new Error("Unable to decode JSON from API.")
   }
 
-  let apiData = json.data
+  const apiData = json.data
 
   if (route == "all") {
     apiData.experience = filterByEmploymentType(apiData.experience, EEmploymentType.FullTime)

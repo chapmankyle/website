@@ -17,9 +17,11 @@ export default function About ({
         </h2>
       </BlurFade>
       <BlurFade delay={blurDelay * 4}>
-        <Markdown className='prose max-w-full text-pretty font-sans text-sm sm:text-base text-muted-foreground dark:prose-invert'>
-          {data.metadata.about}
-        </Markdown>
+        <div className='prose max-w-full text-pretty font-sans text-sm sm:text-base text-muted-foreground dark:prose-invert'>
+          <Markdown>
+            {data.metadata.about}
+          </Markdown>
+        </div>
       </BlurFade>
     </section>
   )
